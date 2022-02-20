@@ -754,3 +754,282 @@ const (
 	DeviceManagementConfigurationTemplateFamilyEndpointSecurityApplicationControl           DeviceManagementConfigurationTemplateFamily = "endpointSecurityApplicationControl"
 	DeviceManagementConfigurationTemplateFamilyBaseline                                     DeviceManagementConfigurationTemplateFamily = "baseline"
 )
+
+type ChassisType = string
+
+const (
+	ChassisTypeUnknown          ChassisType = "unknown"
+	ChassisTypeDesktop          ChassisType = "desktop"
+	ChassisTypeLaptop           ChassisType = "laptop"
+	ChassisTypeWorksWorkstation ChassisType = "worksWorkstation"
+	ChassisTypeEnterpriseServer ChassisType = "enterpriseServer"
+	ChassisTypePhone            ChassisType = "phone"
+	ChassisTypeTablet           ChassisType = "tablet"
+	ChassisTypeMobileOther      ChassisType = "mobileOther"
+	ChassisTypeMobileUnknown    ChassisType = "mobileUnknown"
+)
+
+type ComplianceState = string
+
+const (
+	ComplianceStateUnknown       ComplianceState = "unknown"
+	ComplianceStateCompliant     ComplianceState = "compliant"
+	ComplianceStateNoncompliant  ComplianceState = "noncompliant"
+	ComplianceStateConflict      ComplianceState = "conflict"
+	ComplianceStateError         ComplianceState = "error"
+	ComplianceStateInGracePeriod ComplianceState = "inGracePeriod"
+	ComplianceStateConfigManager ComplianceState = "configManager"
+)
+
+type ConfigurationManagerClientState = string
+
+const (
+	ConfigurationManagerClientStateUnknown            ConfigurationManagerClientState = "unknown"
+	ConfigurationManagerClientStateInstalled          ConfigurationManagerClientState = "installed"
+	ConfigurationManagerClientStateHealthy            ConfigurationManagerClientState = "healthy"
+	ConfigurationManagerClientStateInstallFailed      ConfigurationManagerClientState = "installFailed"
+	ConfigurationManagerClientStateUpdateFailed       ConfigurationManagerClientState = "updateFailed"
+	ConfigurationManagerClientStateCommunicationError ConfigurationManagerClientState = "communicationError"
+)
+
+type ActionState = string
+
+const (
+	ActionStateNone         ActionState = "none"
+	ActionStatePending      ActionState = "pending"
+	ActionStateCanceled     ActionState = "canceled"
+	ActionStateActive       ActionState = "active"
+	ActionStateDone         ActionState = "done"
+	ActionStateFailed       ActionState = "failed"
+	ActionStateNotSupported ActionState = "notSupported"
+)
+
+type DeviceEnrollmentType = string
+
+const (
+	DeviceEnrollmentTypeUnknown                               DeviceEnrollmentType = "unknown"
+	DeviceEnrollmentTypeUserEnrollment                        DeviceEnrollmentType = "userEnrollment"
+	DeviceEnrollmentTypeDeviceEnrollmentManager               DeviceEnrollmentType = "deviceEnrollmentManager"
+	DeviceEnrollmentTypeAppleBulkWithUser                     DeviceEnrollmentType = "appleBulkWithUser"
+	DeviceEnrollmentTypeAppleBulkWithoutUser                  DeviceEnrollmentType = "appleBulkWithoutUser"
+	DeviceEnrollmentTypeWindowsAzureADJoin                    DeviceEnrollmentType = "windowsAzureADJoin"
+	DeviceEnrollmentTypeWindowsBulkUserless                   DeviceEnrollmentType = "windowsBulkUserless"
+	DeviceEnrollmentTypeWindowsAutoEnrollment                 DeviceEnrollmentType = "windowsAutoEnrollment"
+	DeviceEnrollmentTypeWindowsBulkAzureDomainJoin            DeviceEnrollmentType = "windowsBulkAzureDomainJoin"
+	DeviceEnrollmentTypeWindowsCoManagement                   DeviceEnrollmentType = "windowsCoManagement"
+	DeviceEnrollmentTypeWindowsAzureADJoinUsingDeviceAuth     DeviceEnrollmentType = "windowsAzureADJoinUsingDeviceAuth"
+	DeviceEnrollmentTypeAppleUserEnrollment                   DeviceEnrollmentType = "appleUserEnrollment"
+	DeviceEnrollmentTypeAppleUserEnrollmentWithServiceAccount DeviceEnrollmentType = "appleUserEnrollmentWithServiceAccount"
+	DeviceEnrollmentTypeAzureAdJoinUsingAzureVmExtension      DeviceEnrollmentType = "azureAdJoinUsingAzureVmExtension"
+	DeviceEnrollmentTypeAndroidEnterpriseDedicatedDevice      DeviceEnrollmentType = "androidEnterpriseDedicatedDevice"
+	DeviceEnrollmentTypeAndroidEnterpriseFullyManaged         DeviceEnrollmentType = "androidEnterpriseFullyManaged"
+	DeviceEnrollmentTypeAndroidEnterpriseCorporateWorkProfile DeviceEnrollmentType = "androidEnterpriseCorporateWorkProfile"
+)
+
+type DeviceGuardLocalSystemAuthorityCredentialGuardState = string
+
+const (
+	DeviceGuardLocalSystemAuthorityCredentialGuardStateRunning                               DeviceGuardLocalSystemAuthorityCredentialGuardState = "running"
+	DeviceGuardLocalSystemAuthorityCredentialGuardStateRebootRequired                        DeviceGuardLocalSystemAuthorityCredentialGuardState = "rebootRequired"
+	DeviceGuardLocalSystemAuthorityCredentialGuardStateNotLicensed                           DeviceGuardLocalSystemAuthorityCredentialGuardState = "notLicensed"
+	DeviceGuardLocalSystemAuthorityCredentialGuardStateNotConfigured                         DeviceGuardLocalSystemAuthorityCredentialGuardState = "notConfigured"
+	DeviceGuardLocalSystemAuthorityCredentialGuardStateVirtualizationBasedSecurityNotRunning DeviceGuardLocalSystemAuthorityCredentialGuardState = "virtualizationBasedSecurityNotRunning"
+)
+
+type DeviceRegistrationState = string
+
+const (
+	DeviceRegistrationStateNotRegistered                  DeviceRegistrationState = "notRegistered"
+	DeviceRegistrationStateRegistered                     DeviceRegistrationState = "registered"
+	DeviceRegistrationStateRevoked                        DeviceRegistrationState = "revoked"
+	DeviceRegistrationStateKeyConflict                    DeviceRegistrationState = "keyConflict"
+	DeviceRegistrationStateApprovalPending                DeviceRegistrationState = "approvalPending"
+	DeviceRegistrationStateCertificateReset               DeviceRegistrationState = "certificateReset"
+	DeviceRegistrationStateNotRegisteredPendingEnrollment DeviceRegistrationState = "notRegisteredPendingEnrollment"
+	DeviceRegistrationStateUnknown                        DeviceRegistrationState = "unknown"
+)
+
+type DeviceType = string
+
+const (
+	DeviceTypeDesktop           DeviceType = "desktop"
+	DeviceTypeWindowsRT         DeviceType = "windowsRT"
+	DeviceTypeWinMO6            DeviceType = "winMO6"
+	DeviceTypeNokia             DeviceType = "nokia"
+	DeviceTypeWindowsPhone      DeviceType = "windowsPhone"
+	DeviceTypeMac               DeviceType = "mac"
+	DeviceTypeWinCE             DeviceType = "winCE"
+	DeviceTypeWinEmbedded       DeviceType = "winEmbedded"
+	DeviceTypeIPhone            DeviceType = "iPhone"
+	DeviceTypeIPad              DeviceType = "iPad"
+	DeviceTypeIPod              DeviceType = "iPod"
+	DeviceTypeAndroid           DeviceType = "android"
+	DeviceTypeISocConsumer      DeviceType = "iSocConsumer"
+	DeviceTypeUnix              DeviceType = "unix"
+	DeviceTypeMacMDM            DeviceType = "macMDM"
+	DeviceTypeHoloLens          DeviceType = "holoLens"
+	DeviceTypeSurfaceHub        DeviceType = "surfaceHub"
+	DeviceTypeAndroidForWork    DeviceType = "androidForWork"
+	DeviceTypeAndroidEnterprise DeviceType = "androidEnterprise"
+	DeviceTypeWindows10X        DeviceType = "windows10x"
+	DeviceTypeAndroidnGMS       DeviceType = "androidnGMS"
+	DeviceTypeChromeOS          DeviceType = "chromeOS"
+	DeviceTypeLinux             DeviceType = "linux"
+	DeviceTypeBlackberry        DeviceType = "blackberry"
+	DeviceTypePalm              DeviceType = "palm"
+	DeviceTypeUnknown           DeviceType = "unknown"
+	DeviceTypeCloudPC           DeviceType = "cloudPC"
+)
+
+type DeviceManagementExchangeAccessStateReason = string
+
+const (
+	DeviceManagementExchangeAccessStateReasonNone                          DeviceManagementExchangeAccessStateReason = "none"
+	DeviceManagementExchangeAccessStateReasonUnknown                       DeviceManagementExchangeAccessStateReason = "unknown"
+	DeviceManagementExchangeAccessStateReasonExchangeGlobalRule            DeviceManagementExchangeAccessStateReason = "exchangeGlobalRule"
+	DeviceManagementExchangeAccessStateReasonExchangeIndividualRule        DeviceManagementExchangeAccessStateReason = "exchangeIndividualRule"
+	DeviceManagementExchangeAccessStateReasonExchangeDeviceRule            DeviceManagementExchangeAccessStateReason = "exchangeDeviceRule"
+	DeviceManagementExchangeAccessStateReasonExchangeUpgrade               DeviceManagementExchangeAccessStateReason = "exchangeUpgrade"
+	DeviceManagementExchangeAccessStateReasonExchangeMailboxPolicy         DeviceManagementExchangeAccessStateReason = "exchangeMailboxPolicy"
+	DeviceManagementExchangeAccessStateReasonOther                         DeviceManagementExchangeAccessStateReason = "other"
+	DeviceManagementExchangeAccessStateReasonCompliant                     DeviceManagementExchangeAccessStateReason = "compliant"
+	DeviceManagementExchangeAccessStateReasonNotCompliant                  DeviceManagementExchangeAccessStateReason = "notCompliant"
+	DeviceManagementExchangeAccessStateReasonNotEnrolled                   DeviceManagementExchangeAccessStateReason = "notEnrolled"
+	DeviceManagementExchangeAccessStateReasonUnknownLocation               DeviceManagementExchangeAccessStateReason = "unknownLocation"
+	DeviceManagementExchangeAccessStateReasonMfaRequired                   DeviceManagementExchangeAccessStateReason = "mfaRequired"
+	DeviceManagementExchangeAccessStateReasonAzureADBlockDueToAccessPolicy DeviceManagementExchangeAccessStateReason = "azureADBlockDueToAccessPolicy"
+	DeviceManagementExchangeAccessStateReasonCompromisedPassword           DeviceManagementExchangeAccessStateReason = "compromisedPassword"
+	DeviceManagementExchangeAccessStateReasonDeviceNotKnownWithManagedApp  DeviceManagementExchangeAccessStateReason = "deviceNotKnownWithManagedApp"
+)
+
+type DeviceManagementExchangeAccessState = string
+
+const (
+	DeviceManagementExchangeAccessStateNone        DeviceManagementExchangeAccessState = "none"
+	DeviceManagementExchangeAccessStateUnknown     DeviceManagementExchangeAccessState = "unknown"
+	DeviceManagementExchangeAccessStateAllowed     DeviceManagementExchangeAccessState = "allowed"
+	DeviceManagementExchangeAccessStateBlocked     DeviceManagementExchangeAccessState = "blocked"
+	DeviceManagementExchangeAccessStateQuarantined DeviceManagementExchangeAccessState = "quarantined"
+)
+
+type JoinType = string
+
+const (
+	JoinTypeUnknown             JoinType = "unknown"
+	JoinTypeAzureADJoined       JoinType = "azureADJoined"
+	JoinTypeAzureADRegistered   JoinType = "azureADRegistered"
+	JoinTypeHybridAzureADJoined JoinType = "hybridAzureADJoined"
+)
+
+type LostModeState = string
+
+const (
+	LostModeStateDisabled LostModeState = "disabled"
+	LostModeStateEnabled  LostModeState = "enabled"
+)
+
+type ManagedDeviceOwnerType = string
+
+const (
+	ManagedDeviceOwnerTypeUnknown  ManagedDeviceOwnerType = "unknown"
+	ManagedDeviceOwnerTypeCompany  ManagedDeviceOwnerType = "company"
+	ManagedDeviceOwnerTypePersonal ManagedDeviceOwnerType = "personal"
+)
+
+type OwnerType = string
+
+const (
+	OwnerTypeUnknown  OwnerType = "unknown"
+	OwnerTypeCompany  OwnerType = "company"
+	OwnerTypePersonal OwnerType = "personal"
+)
+
+type ManagementAgentType = string
+
+const (
+	ManagementAgentTypeEas                               ManagementAgentType = "eas"
+	ManagementAgentTypeMdm                               ManagementAgentType = "mdm"
+	ManagementAgentTypeEasMdm                            ManagementAgentType = "easMdm"
+	ManagementAgentTypeIntuneClient                      ManagementAgentType = "intuneClient"
+	ManagementAgentTypeEasIntuneClient                   ManagementAgentType = "easIntuneClient"
+	ManagementAgentTypeConfigurationManagerClient        ManagementAgentType = "configurationManagerClient"
+	ManagementAgentTypeConfigurationManagerClientMdm     ManagementAgentType = "configurationManagerClientMdm"
+	ManagementAgentTypeConfigurationManagerClientMdmEas  ManagementAgentType = "configurationManagerClientMdmEas"
+	ManagementAgentTypeUnknown                           ManagementAgentType = "unknown"
+	ManagementAgentTypeJamf                              ManagementAgentType = "jamf"
+	ManagementAgentTypeGoogleCloudDevicePolicyController ManagementAgentType = "googleCloudDevicePolicyController"
+	ManagementAgentTypeMicrosoft365ManagedMdm            ManagementAgentType = "microsoft365ManagedMdm"
+	ManagementAgentTypeMsSense                           ManagementAgentType = "msSense"
+	ManagementAgentTypeIntuneAosp                        ManagementAgentType = "intuneAosp"
+)
+
+type ManagedDeviceManagementFeatures = string
+
+const (
+	ManagedDeviceManagementFeaturesNone                    ManagedDeviceManagementFeatures = "none"
+	ManagedDeviceManagementFeaturesMicrosoftManagedDesktop ManagedDeviceManagementFeatures = "microsoftManagedDesktop"
+)
+
+type ManagementState = string
+
+const (
+	ManagementStateManaged        ManagementState = "managed"
+	ManagementStateRetirePending  ManagementState = "retirePending"
+	ManagementStateRetireFailed   ManagementState = "retireFailed"
+	ManagementStateWipePending    ManagementState = "wipePending"
+	ManagementStateWipeFailed     ManagementState = "wipeFailed"
+	ManagementStateUnhealthy      ManagementState = "unhealthy"
+	ManagementStateDeletePending  ManagementState = "deletePending"
+	ManagementStateRetireIssued   ManagementState = "retireIssued"
+	ManagementStateWipeIssued     ManagementState = "wipeIssued"
+	ManagementStateWipeCanceled   ManagementState = "wipeCanceled"
+	ManagementStateRetireCanceled ManagementState = "retireCanceled"
+	ManagementStateDiscovered     ManagementState = "discovered"
+)
+
+type ManagedDevicePartnerReportedHealthState = string
+
+const (
+	ManagedDevicePartnerReportedHealthStateUnknown        ManagedDevicePartnerReportedHealthState = "unknown"
+	ManagedDevicePartnerReportedHealthStateActivated      ManagedDevicePartnerReportedHealthState = "activated"
+	ManagedDevicePartnerReportedHealthStateDeactivated    ManagedDevicePartnerReportedHealthState = "deactivated"
+	ManagedDevicePartnerReportedHealthStateSecured        ManagedDevicePartnerReportedHealthState = "secured"
+	ManagedDevicePartnerReportedHealthStateLowSeverity    ManagedDevicePartnerReportedHealthState = "lowSeverity"
+	ManagedDevicePartnerReportedHealthStateMediumSeverity ManagedDevicePartnerReportedHealthState = "mediumSeverity"
+	ManagedDevicePartnerReportedHealthStateHighSeverity   ManagedDevicePartnerReportedHealthState = "highSeverity"
+	ManagedDevicePartnerReportedHealthStateUnresponsive   ManagedDevicePartnerReportedHealthState = "unresponsive"
+	ManagedDevicePartnerReportedHealthStateCompromised    ManagedDevicePartnerReportedHealthState = "compromised"
+	ManagedDevicePartnerReportedHealthStateMisconfigured  ManagedDevicePartnerReportedHealthState = "misconfigured"
+)
+
+type ManagedDeviceArchitecture = string
+
+const (
+	ManagedDeviceArchitectureUnknown ManagedDeviceArchitecture = "unknown"
+	ManagedDeviceArchitectureX86     ManagedDeviceArchitecture = "x86"
+	ManagedDeviceArchitectureX64     ManagedDeviceArchitecture = "x64"
+	ManagedDeviceArchitectureArm     ManagedDeviceArchitecture = "arm"
+	ManagedDeviceArchitectureArM64   ManagedDeviceArchitecture = "arM64"
+)
+
+type DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = string
+
+const (
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateMeetHardwareRequirements     DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = "meetHardwareRequirements"
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateSecureBootRequired           DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = "secureBootRequired"
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateDmaProtectionRequired        DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = "dmaProtectionRequired"
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateHyperVNotSupportedForGuestVM DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = "hyperVNotSupportedForGuestVM"
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateHyperVNotAvailable           DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = "hyperVNotAvailable"
+)
+
+type DeviceGuardVirtualizationBasedSecurityState = string
+
+const (
+	DeviceGuardVirtualizationBasedSecurityStateRunning                         DeviceGuardVirtualizationBasedSecurityState = "running"
+	DeviceGuardVirtualizationBasedSecurityStateRebootRequired                  DeviceGuardVirtualizationBasedSecurityState = "rebootRequired"
+	DeviceGuardVirtualizationBasedSecurityStateRequire64BitArchitecture        DeviceGuardVirtualizationBasedSecurityState = "require64BitArchitecture"
+	DeviceGuardVirtualizationBasedSecurityStateNotLicensed                     DeviceGuardVirtualizationBasedSecurityState = "notLicensed"
+	DeviceGuardVirtualizationBasedSecurityStateNotConfigured                   DeviceGuardVirtualizationBasedSecurityState = "notConfigured"
+	DeviceGuardVirtualizationBasedSecurityStateDoesNotMeetHardwareRequirements DeviceGuardVirtualizationBasedSecurityState = "doesNotMeetHardwareRequirements"
+	DeviceGuardVirtualizationBasedSecurityStateOther                           DeviceGuardVirtualizationBasedSecurityState = "other"
+)

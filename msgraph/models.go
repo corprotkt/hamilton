@@ -1756,3 +1756,256 @@ type DeviceComplianceActionItem struct {
 	NotificationMessageCCList *[]string                   `json:"notificationMessageCCList,omitempty"`
 	NotificationTemplateId    *string                     `json:"notificationTemplateId,omitempty"`
 }
+
+type ManagedDevice struct {
+	DirectoryObject
+
+	CloudPcRemoteActionResults                *[]CloudPcRemoteActionResult               `json:"cloudPcRemoteActionResults,omitempty"`
+	AadRegistered                             *bool                                      `json:"aadRegistered,omitempty"`
+	ActivationLockBypassCode                  *string                                    `json:"activationLockBypassCode,omitempty"`
+	AndroidSecurityPatchLevel                 *string                                    `json:"androidSecurityPatchLevel,omitempty"`
+	AutopilotEnrolled                         *bool                                      `json:"autopilotEnrolled,omitempty"`
+	AzureActiveDirectoryDeviceId              *string                                    `json:"azureActiveDirectoryDeviceId,omitempty"`
+	AzureADDeviceId                           *string                                    `json:"azureADDeviceId,omitempty"`
+	AzureADRegistered                         *bool                                      `json:"azureADRegistered,omitempty"`
+	ChassisType                               *ChassisType                               `json:"chassisType,omitempty"`
+	ChromeOSDeviceInfo                        *[]ChromeOSDeviceProperty                  `json:"chromeOSDeviceInfo,omitempty"`
+	ComplianceGracePeriodExpirationDateTime   *time.Time                                 `json:"complianceGracePeriodExpirationDateTime,omitempty"`
+	ComplianceState                           *ComplianceState                           `json:"complianceState,omitempty"`
+	ConfigurationManagerClientEnabledFeatures *ConfigurationManagerClientEnabledFeatures `json:"configurationManagerClientEnabledFeatures,omitempty"`
+	ConfigurationManagerClientHealthState     *ConfigurationManagerClientHealthState     `json:"configurationManagerClientHealthState,omitempty"`
+	ConfigurationManagerClientInformation     *ConfigurationManagerClientInformation     `json:"configurationManagerClientInformation,omitempty"`
+	DeviceActionResults                       *[]DeviceActionResult                      `json:"deviceActionResults,omitempty"`
+	DeviceCategoryDisplayName                 *string                                    `json:"deviceCategoryDisplayName,omitempty"`
+	DeviceEnrollmentType                      *DeviceEnrollmentType                      `json:"deviceEnrollmentType,omitempty"`
+	DeviceHealthAttestationState              *DeviceHealthAttestationState              `json:"deviceHealthAttestationState,omitempty"`
+	DeviceName                                *string                                    `json:"deviceName,omitempty"`
+	DeviceRegistrationState                   *DeviceRegistrationState                   `json:"deviceRegistrationState,omitempty"`
+	DeviceType                                *DeviceType                                `json:"deviceType,omitempty"`
+	EasActivated                              *bool                                      `json:"easActivated,omitempty"`
+	EasActivationDateTime                     *time.Time                                 `json:"easActivationDateTime,omitempty"`
+	EasDeviceId                               *string                                    `json:"easDeviceId,omitempty"`
+	EmailAddress                              *string                                    `json:"emailAddress,omitempty"`
+	EnrolledDateTime                          *time.Time                                 `json:"enrolledDateTime,omitempty"`
+	EnrollmentProfileName                     *string                                    `json:"enrollmentProfileName,omitempty"`
+	EthernetMacAddress                        *string                                    `json:"ethernetMacAddress,omitempty"`
+	ExchangeAccessState                       *DeviceManagementExchangeAccessState       `json:"exchangeAccessState,omitempty"`
+	ExchangeAccessStateReason                 *DeviceManagementExchangeAccessStateReason `json:"exchangeAccessStateReason,omitempty"`
+	ExchangeLastSuccessfulSyncDateTime        *time.Time                                 `json:"exchangeLastSuccessfulSyncDateTime,omitempty"`
+	FreeStorageSpaceInBytes                   *int64                                     `json:"freeStorageSpaceInBytes,omitempty"`
+	HardwareInformation                       *HardwareInformation                       `json:"hardwareInformation,omitempty"`
+	Iccid                                     *string                                    `json:"iccid,omitempty"`
+	Imei                                      *string                                    `json:"imei,omitempty"`
+	IsEncrypted                               *bool                                      `json:"isEncrypted,omitempty"`
+	IsSupervised                              *bool                                      `json:"isSupervised,omitempty"`
+	JailBroken                                *string                                    `json:"jailBroken,omitempty"`
+	JoinType                                  *JoinType                                  `json:"joinType,omitempty"`
+	LastSyncDateTime                          *time.Time                                 `json:"lastSyncDateTime,omitempty"`
+	LostModeState                             *LostModeState                             `json:"lostModeState,omitempty"`
+	ManagedDeviceName                         *string                                    `json:"managedDeviceName,omitempty"`
+	ManagedDeviceOwnerType                    *ManagedDeviceOwnerType                    `json:"managedDeviceOwnerType,omitempty"`
+	ManagementAgent                           *ManagementAgentType                       `json:"managementAgent,omitempty"`
+	ManagementCertificateExpirationDate       *time.Time                                 `json:"managementCertificateExpirationDate,omitempty"`
+	ManagementFeatures                        *ManagedDeviceManagementFeatures           `json:"managementFeatures,omitempty"`
+	ManagementState                           *ManagementState                           `json:"managementState,omitempty"`
+	Manufacturer                              *string                                    `json:"manufacturer,omitempty"`
+	Meid                                      *string                                    `json:"meid,omitempty"`
+	Model                                     *string                                    `json:"model,omitempty"`
+	Notes                                     *string                                    `json:"notes,omitempty"`
+	OperatingSystem                           *string                                    `json:"operatingSystem,omitempty"`
+	OsVersion                                 *string                                    `json:"osVersion,omitempty"`
+	OwnerType                                 *OwnerType                                 `json:"ownerType,omitempty"`
+	PartnerReportedThreatState                *ManagedDevicePartnerReportedHealthState   `json:"partnerReportedThreatState,omitempty"`
+	PhoneNumber                               *string                                    `json:"phoneNumber,omitempty"`
+	PhysicalMemoryInBytes                     *int64                                     `json:"physicalMemoryInBytes,omitempty"`
+	PreferMdmOverGroupPolicyAppliedDateTime   *time.Time                                 `json:"preferMdmOverGroupPolicyAppliedDateTime,omitempty"`
+	ProcessorArchitecture                     *ManagedDeviceArchitecture                 `json:"processorArchitecture,omitempty"`
+	RemoteAssistanceSessionErrorDetails       *string                                    `json:"remoteAssistanceSessionErrorDetails,omitempty"`
+	RemoteAssistanceSessionUrl                *string                                    `json:"remoteAssistanceSessionUrl,omitempty"`
+	RequireUserEnrollmentApproval             *bool                                      `json:"requireUserEnrollmentApproval,omitempty"`
+	RetireAfterDateTime                       *time.Time                                 `json:"retireAfterDateTime,omitempty"`
+	RoleScopeTagIds                           *[]string                                  `json:"roleScopeTagIds,omitempty"`
+	SerialNumber                              *string                                    `json:"serialNumber,omitempty"`
+	SkuFamily                                 *string                                    `json:"skuFamily,omitempty"`
+	SkuNumber                                 *int32                                     `json:"skuNumber,omitempty"`
+	SpecificationVersion                      *string                                    `json:"specificationVersion,omitempty"`
+	SubscriberCarrier                         *string                                    `json:"subscriberCarrier,omitempty"`
+	TotalStorageSpaceInBytes                  *int64                                     `json:"totalStorageSpaceInBytes,omitempty"`
+	Udid                                      *string                                    `json:"udid,omitempty"`
+	UserDisplayName                           *string                                    `json:"userDisplayName,omitempty"`
+	UserId                                    *string                                    `json:"userId,omitempty"`
+	UserPrincipalName                         *string                                    `json:"userPrincipalName,omitempty"`
+	UsersLoggedOn                             *[]LoggedOnUser                            `json:"usersLoggedOn,omitempty"`
+	WiFiMacAddress                            *string                                    `json:"wiFiMacAddress,omitempty"`
+	WindowsActiveMalwareCount                 *int32                                     `json:"windowsActiveMalwareCount,omitempty"`
+	WindowsRemediatedMalwareCount             *int32                                     `json:"windowsRemediatedMalwareCount,omitempty"`
+}
+
+type WindowsManagedDevice struct {
+	ManagedDevice
+}
+
+type WindowsProtectionState struct {
+	DirectoryObject
+
+	AntiMalwareVersion             *string                       `json:"antiMalwareVersion,omitempty"`
+	DeviceState                    *WindowsDeviceHealthState     `json:"deviceState,omitempty"`
+	EngineVersion                  *string                       `json:"engineVersion,omitempty"`
+	FullScanOverdue                *bool                         `json:"fullScanOverdue,omitempty"`
+	FullScanRequired               *bool                         `json:"fullScanRequired,omitempty"`
+	IsVirtualMachine               *bool                         `json:"isVirtualMachine,omitempty"`
+	LastFullScanDateTime           *time.Time                    `json:"lastFullScanDateTime,omitempty"`
+	LastFullScanSignatureVersion   *string                       `json:"lastFullScanSignatureVersion,omitempty"`
+	LastQuickScanDateTime          *time.Time                    `json:"lastQuickScanDateTime,omitempty"`
+	LastQuickScanSignatureVersion  *string                       `json:"lastQuickScanSignatureVersion,omitempty"`
+	LastReportedDateTime           *time.Time                    `json:"lastReportedDateTime,omitempty"`
+	MalwareProtectionEnabled       *bool                         `json:"malwareProtectionEnabled,omitempty"`
+	NetworkInspectionSystemEnabled *bool                         `json:"networkInspectionSystemEnabled,omitempty"`
+	ProductStatus                  *WindowsDefenderProductStatus `json:"productStatus,omitempty"`
+	QuickScanOverdue               *bool                         `json:"quickScanOverdue,omitempty"`
+	RealTimeProtectionEnabled      *bool                         `json:"realTimeProtectionEnabled,omitempty"`
+	RebootRequired                 *bool                         `json:"rebootRequired,omitempty"`
+	SignatureUpdateOverdue         *bool                         `json:"signatureUpdateOverdue,omitempty"`
+	SignatureVersion               *string                       `json:"signatureVersion,omitempty"`
+	TamperProtectionEnabled        *bool                         `json:"tamperProtectionEnabled,omitempty"`
+}
+
+type CloudPcRemoteActionResult struct {
+	ActionName          *string               `json:"actionName,omitempty"`
+	ActionState         *ActionState          `json:"actionState,omitempty"`
+	CloudPcId           *string               `json:"cloudPcId,omitempty"`
+	LastUpdatedDateTime *time.Time            `json:"lastUpdatedDateTime,omitempty"`
+	ManagedDeviceId     *string               `json:"managedDeviceId,omitempty"`
+	StartDateTime       *time.Time            `json:"startDateTime,omitempty"`
+	StatusDetails       *CloudPcStatusDetails `json:"statusDetails,omitempty"`
+}
+
+type CloudPcStatusDetails struct {
+	AdditionalInformation *[]KeyValuePair `json:"additionalInformation,omitempty"`
+	Code                  *string         `json:"code,omitempty"`
+	Message               *string         `json:"message,omitempty"`
+}
+
+type ChromeOSDeviceProperty struct {
+	Name      *string `json:"name,omitempty"`
+	Updatable *bool   `json:"updatable,omitempty"`
+	Value     *string `json:"value,omitempty"`
+	ValueType *string `json:"valueType,omitempty"`
+}
+
+type LoggedOnUser struct {
+	LastLogOnDateTime *time.Time `json:"lastLogOnDateTime,omitempty"`
+	UserId            *string    `json:"userId,omitempty"`
+}
+
+type ConfigurationManagerClientInformation struct {
+	ClientIdentifier *string `json:"clientIdentifier,omitempty"`
+	IsBlocked        *bool   `json:"isBlocked,omitempty"`
+}
+
+type ConfigurationManagerClientEnabledFeatures struct {
+	CompliancePolicy         *bool `json:"compliancePolicy,omitempty"`
+	DeviceConfiguration      *bool `json:"deviceConfiguration,omitempty"`
+	EndpointProtection       *bool `json:"endpointProtection,omitempty"`
+	Inventory                *bool `json:"inventory,omitempty"`
+	ModernApps               *bool `json:"modernApps,omitempty"`
+	OfficeApps               *bool `json:"officeApps,omitempty"`
+	ResourceAccess           *bool `json:"resourceAccess,omitempty"`
+	WindowsUpdateForBusiness *bool `json:"windowsUpdateForBusiness,omitempty"`
+}
+
+type KeyValuePair struct {
+	Name  *string `json:"name,omitempty"`
+	Value *string `json:"value,omitempty"`
+}
+
+type ConfigurationManagerClientHealthState struct {
+	ErrorCode        *int32                           `json:"errorCode,omitempty"`
+	LastSyncDateTime *time.Time                       `json:"lastSyncDateTime,omitempty"`
+	State            *ConfigurationManagerClientState `json:"state,omitempty"`
+}
+
+type DeviceActionResult struct {
+	ActionName          *string      `json:"actionName,omitempty"`
+	ActionState         *ActionState `json:"actionState,omitempty"`
+	LastUpdatedDateTime *time.Time   `json:"lastUpdatedDateTime,omitempty"`
+	StartDateTime       *time.Time   `json:"startDateTime,omitempty"`
+}
+
+type DeviceHealthAttestationState struct {
+	AttestationIdentityKey                   *string    `json:"attestationIdentityKey,omitempty"`
+	BitLockerStatus                          *string    `json:"bitLockerStatus,omitempty"`
+	BootAppSecurityVersion                   *string    `json:"bootAppSecurityVersion,omitempty"`
+	BootDebugging                            *string    `json:"bootDebugging,omitempty"`
+	BootManagerSecurityVersion               *string    `json:"bootManagerSecurityVersion,omitempty"`
+	BootManagerVersion                       *string    `json:"bootManagerVersion,omitempty"`
+	BootRevisionListInfo                     *string    `json:"bootRevisionListInfo,omitempty"`
+	CodeIntegrity                            *string    `json:"codeIntegrity,omitempty"`
+	CodeIntegrityCheckVersion                *string    `json:"codeIntegrityCheckVersion,omitempty"`
+	CodeIntegrityPolicy                      *string    `json:"codeIntegrityPolicy,omitempty"`
+	ContentNamespaceUrl                      *string    `json:"contentNamespaceUrl,omitempty"`
+	ContentVersion                           *string    `json:"contentVersion,omitempty"`
+	DataExcutionPolicy                       *string    `json:"dataExcutionPolicy,omitempty"`
+	DeviceHealthAttestationStatus            *string    `json:"deviceHealthAttestationStatus,omitempty"`
+	EarlyLaunchAntiMalwareDriverProtection   *string    `json:"earlyLaunchAntiMalwareDriverProtection,omitempty"`
+	HealthAttestationSupportedStatus         *string    `json:"healthAttestationSupportedStatus,omitempty"`
+	HealthStatusMismatchInfo                 *string    `json:"healthStatusMismatchInfo,omitempty"`
+	IssuedDateTime                           *time.Time `json:"issuedDateTime,omitempty"`
+	LastUpdateDateTime                       *string    `json:"lastUpdateDateTime,omitempty"`
+	OperatingSystemKernelDebugging           *string    `json:"operatingSystemKernelDebugging,omitempty"`
+	OperatingSystemRevListInfo               *string    `json:"operatingSystemRevListInfo,omitempty"`
+	Pcr0                                     *string    `json:"pcr0,omitempty"`
+	PcrHashAlgorithm                         *string    `json:"pcrHashAlgorithm,omitempty"`
+	ResetCount                               *int64     `json:"resetCount,omitempty"`
+	RestartCount                             *int64     `json:"restartCount,omitempty"`
+	SafeMode                                 *string    `json:"safeMode,omitempty"`
+	SecureBoot                               *string    `json:"secureBoot,omitempty"`
+	SecureBootConfigurationPolicyFingerPrint *string    `json:"secureBootConfigurationPolicyFingerPrint,omitempty"`
+	TestSigning                              *string    `json:"testSigning,omitempty"`
+	TpmVersion                               *string    `json:"tpmVersion,omitempty"`
+	VirtualSecureMode                        *string    `json:"virtualSecureMode,omitempty"`
+	WindowsPE                                *string    `json:"windowsPE,omitempty"`
+}
+
+type HardwareInformation struct {
+	BatteryChargeCycles                                            *int32                                                          `json:"batteryChargeCycles,omitempty"`
+	BatteryHealthPercentage                                        *int32                                                          `json:"batteryHealthPercentage,omitempty"`
+	BatterySerialNumber                                            *string                                                         `json:"batterySerialNumber,omitempty"`
+	CellularTechnology                                             *string                                                         `json:"cellularTechnology,omitempty"`
+	DeviceFullQualifiedDomainName                                  *string                                                         `json:"deviceFullQualifiedDomainName,omitempty"`
+	DeviceGuardLocalSystemAuthorityCredentialGuardState            *DeviceGuardLocalSystemAuthorityCredentialGuardState            `json:"deviceGuardLocalSystemAuthorityCredentialGuardState,omitempty"`
+	DeviceGuardVirtualizationBasedSecurityHardwareRequirementState *DeviceGuardVirtualizationBasedSecurityHardwareRequirementState `json:"deviceGuardVirtualizationBasedSecurityHardwareRequirementState,omitempty"`
+	DeviceGuardVirtualizationBasedSecurityState                    *DeviceGuardVirtualizationBasedSecurityState                    `json:"deviceGuardVirtualizationBasedSecurityState,omitempty"`
+	EsimIdentifier                                                 *string                                                         `json:"esimIdentifier,omitempty"`
+	FreeStorageSpace                                               *int64                                                          `json:"freeStorageSpace,omitempty"`
+	Imei                                                           *string                                                         `json:"imei,omitempty"`
+	IpAddressV4                                                    *string                                                         `json:"ipAddressV4,omitempty"`
+	IsEncrypted                                                    *bool                                                           `json:"isEncrypted,omitempty"`
+	IsSharedDevice                                                 *bool                                                           `json:"isSharedDevice,omitempty"`
+	IsSupervised                                                   *bool                                                           `json:"isSupervised,omitempty"`
+	Manufacturer                                                   *string                                                         `json:"manufacturer,omitempty"`
+	Meid                                                           *string                                                         `json:"meid,omitempty"`
+	Model                                                          *string                                                         `json:"model,omitempty"`
+	OperatingSystemEdition                                         *string                                                         `json:"operatingSystemEdition,omitempty"`
+	OperatingSystemLanguage                                        *string                                                         `json:"operatingSystemLanguage,omitempty"`
+	OperatingSystemProductType                                     *int32                                                          `json:"operatingSystemProductType,omitempty"`
+	OsBuildNumber                                                  *string                                                         `json:"osBuildNumber,omitempty"`
+	PhoneNumber                                                    *string                                                         `json:"phoneNumber,omitempty"`
+	SerialNumber                                                   *string                                                         `json:"serialNumber,omitempty"`
+	SharedDeviceCachedUsers                                        *[]SharedAppleDeviceUser                                        `json:"sharedDeviceCachedUsers,omitempty"`
+	SubnetAddress                                                  *string                                                         `json:"subnetAddress,omitempty"`
+	SubscriberCarrier                                              *string                                                         `json:"subscriberCarrier,omitempty"`
+	SystemManagementBIOSVersion                                    *string                                                         `json:"systemManagementBIOSVersion,omitempty"`
+	TotalStorageSpace                                              *int64                                                          `json:"totalStorageSpace,omitempty"`
+	TpmManufacturer                                                *string                                                         `json:"tpmManufacturer,omitempty"`
+	TpmSpecificationVersion                                        *string                                                         `json:"tpmSpecificationVersion,omitempty"`
+	TpmVersion                                                     *string                                                         `json:"tpmVersion,omitempty"`
+	WifiMac                                                        *string                                                         `json:"wifiMac,omitempty"`
+}
+
+type SharedAppleDeviceUser struct {
+	DataQuota         *int64  `json:"dataQuota,omitempty"`
+	DataToSync        *bool   `json:"dataToSync,omitempty"`
+	DataUsed          *int64  `json:"dataUsed,omitempty"`
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}

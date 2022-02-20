@@ -124,6 +124,7 @@ type Test struct {
 	UsersAppRoleAssignmentsClient             *msgraph.AppRoleAssignmentsClient
 	UsersClient                               *msgraph.UsersClient
 	DeviceCompliancePolicyClient              *msgraph.DeviceCompliancePolicyClient
+	ManagedDeviceClient                       *msgraph.ManagedDeviceClient
 }
 
 func NewTest(t *testing.T) (c *Test) {
@@ -328,6 +329,11 @@ func NewTest(t *testing.T) (c *Test) {
 	c.DeviceCompliancePolicyClient.BaseClient.Authorizer = c.Connection.Authorizer
 	c.DeviceCompliancePolicyClient.BaseClient.Endpoint = c.Connection.AuthConfig.Environment.MsGraph.Endpoint
 	c.DeviceCompliancePolicyClient.BaseClient.RetryableClient.RetryMax = retry
+
+	c.ManagedDeviceClient = msgraph.NewManagedDeviceClient(c.Connection.AuthConfig.TenantID)
+	c.ManagedDeviceClient.BaseClient.Authorizer = c.Connection.Authorizer
+	c.ManagedDeviceClient.BaseClient.Endpoint = c.Connection.AuthConfig.Environment.MsGraph.Endpoint
+	c.ManagedDeviceClient.BaseClient.RetryableClient.RetryMax = retry
 
 	return
 }
