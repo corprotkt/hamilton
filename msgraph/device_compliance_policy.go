@@ -314,7 +314,15 @@ func (c *DeviceCompliancePolicyClient) ListAssignments(ctx context.Context, id s
 func NewAllDevicesAssignmentTarget() *DeviceAndAppManagementAssignmentTargetAllDevices {
 	target := &DeviceAndAppManagementAssignmentTargetAllDevices{}
 
-	target.ODataType = utils.StringPtr(odata.TypeDeviceComplianceAssignmentTargetAllSDevices)
+	target.ODataType = utils.StringPtr(odata.TypeDeviceComplianceAssignmentTargetAllDevices)
+
+	return target
+}
+
+func NewGroupAssignmentTarget(group *Group) *DeviceAndAppManagementAssignmentGroupAssignmentTarget {
+	target := &DeviceAndAppManagementAssignmentGroupAssignmentTarget{GroupID: group.ID}
+
+	target.ODataType = utils.StringPtr(odata.TypeDeviceComplianceAssignmentTargetGroup)
 
 	return target
 }
