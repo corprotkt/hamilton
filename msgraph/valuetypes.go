@@ -60,7 +60,7 @@ const (
 type AccessPackageResourceRequestType = string
 
 const (
-	AccessPackageResourceRequestTypeAdminAdd     AccessPackageResourceRequestType = "AdminAdd"
+	AccessPackageResourceRequestTypeAdminAdd    AccessPackageResourceRequestType = "AdminAdd"
 	AccessPackageResourceRequestTypeAdminRemove AccessPackageResourceRequestType = "AdminRemove"
 )
 
@@ -624,4 +624,133 @@ const (
 	IncludedUserTypesAll    IncludedUserTypes = "all"
 	IncludedUserTypesMember IncludedUserTypes = "member"
 	IncludedUserTypesGuest  IncludedUserTypes = "guest"
+)
+
+type DeviceManagementConfigurationPlatforms = string
+
+const (
+	DeviceManagementConfigurationPlatformsNone               DeviceManagementConfigurationPlatforms = "none"
+	DeviceManagementConfigurationPlatformsAndroid            DeviceManagementConfigurationPlatforms = "android"
+	DeviceManagementConfigurationPlatformsIOS                DeviceManagementConfigurationPlatforms = "iOS"
+	DeviceManagementConfigurationPlatformsMacOS              DeviceManagementConfigurationPlatforms = "macOS"
+	DeviceManagementConfigurationPlatformsWindows10X         DeviceManagementConfigurationPlatforms = "windows10X"
+	DeviceManagementConfigurationPlatformsWindows10          DeviceManagementConfigurationPlatforms = "windows10"
+	DeviceManagementConfigurationPlatformsLinux              DeviceManagementConfigurationPlatforms = "linux"
+	DeviceManagementConfigurationPlatformsUnknownFutureValue DeviceManagementConfigurationPlatforms = "unknownFutureValue"
+)
+
+type DeviceManagementConfigurationTechnologies = string
+
+const (
+	DeviceManagementConfigurationTechnologiesNone                 DeviceManagementConfigurationTechnologies = "none"
+	DeviceManagementConfigurationTechnologiesMdm                  DeviceManagementConfigurationTechnologies = "mdm"
+	DeviceManagementConfigurationTechnologiesWindows10XManagement DeviceManagementConfigurationTechnologies = "windows10XManagement"
+	DeviceManagementConfigurationTechnologiesConfigManager        DeviceManagementConfigurationTechnologies = "configManager"
+	DeviceManagementConfigurationTechnologiesMicrosoftSense       DeviceManagementConfigurationTechnologies = "microsoftSense"
+	DeviceManagementConfigurationTechnologiesExchangeOnline       DeviceManagementConfigurationTechnologies = "exchangeOnline"
+	DeviceManagementConfigurationTechnologiesLinuxMdm             DeviceManagementConfigurationTechnologies = "linuxMdm"
+	DeviceManagementConfigurationTechnologiesUnknownFutureValue   DeviceManagementConfigurationTechnologies = "unknownFutureValue"
+)
+
+type WindowsDefenderProductStatus = string
+
+const (
+	WindowsDefenderProductStatusNoStatus                                        WindowsDefenderProductStatus = "noStatus"
+	WindowsDefenderProductStatusServiceNotRunning                               WindowsDefenderProductStatus = "serviceNotRunning"
+	WindowsDefenderProductStatusServiceStartedWithoutMalwareProtection          WindowsDefenderProductStatus = "serviceStartedWithoutMalwareProtection"
+	WindowsDefenderProductStatusPendingFullScanDueToThreatAction                WindowsDefenderProductStatus = "pendingFullScanDueToThreatAction"
+	WindowsDefenderProductStatusPendingRebootDueToThreatAction                  WindowsDefenderProductStatus = "pendingRebootDueToThreatAction"
+	WindowsDefenderProductStatusPendingManualStepsDueToThreatAction             WindowsDefenderProductStatus = "pendingManualStepsDueToThreatAction"
+	WindowsDefenderProductStatusAvSignaturesOutOfDate                           WindowsDefenderProductStatus = "avSignaturesOutOfDate"
+	WindowsDefenderProductStatusAsSignaturesOutOfDate                           WindowsDefenderProductStatus = "asSignaturesOutOfDate"
+	WindowsDefenderProductStatusNoQuickScanHappenedForSpecifiedPeriod           WindowsDefenderProductStatus = "noQuickScanHappenedForSpecifiedPeriod"
+	WindowsDefenderProductStatusNoFullScanHappenedForSpecifiedPeriod            WindowsDefenderProductStatus = "noFullScanHappenedForSpecifiedPeriod"
+	WindowsDefenderProductStatusSystemInitiatedScanInProgress                   WindowsDefenderProductStatus = "systemInitiatedScanInProgress"
+	WindowsDefenderProductStatusSystemInitiatedCleanInProgress                  WindowsDefenderProductStatus = "systemInitiatedCleanInProgress"
+	WindowsDefenderProductStatusSamplesPendingSubmission                        WindowsDefenderProductStatus = "samplesPendingSubmission"
+	WindowsDefenderProductStatusProductRunningInEvaluationMode                  WindowsDefenderProductStatus = "productRunningInEvaluationMode"
+	WindowsDefenderProductStatusProductRunningInNonGenuineMode                  WindowsDefenderProductStatus = "productRunningInNonGenuineMode"
+	WindowsDefenderProductStatusProductExpired                                  WindowsDefenderProductStatus = "productExpired"
+	WindowsDefenderProductStatusOfflineScanRequired                             WindowsDefenderProductStatus = "offlineScanRequired"
+	WindowsDefenderProductStatusServiceShutdownAsPartOfSystemShutdown           WindowsDefenderProductStatus = "serviceShutdownAsPartOfSystemShutdown"
+	WindowsDefenderProductStatusThreatRemediationFailedCritically               WindowsDefenderProductStatus = "threatRemediationFailedCritically"
+	WindowsDefenderProductStatusThreatRemediationFailedNonCritically            WindowsDefenderProductStatus = "threatRemediationFailedNonCritically"
+	WindowsDefenderProductStatusNoStatusFlagsSet                                WindowsDefenderProductStatus = "noStatusFlagsSet"
+	WindowsDefenderProductStatusPlatformOutOfDate                               WindowsDefenderProductStatus = "platformOutOfDate"
+	WindowsDefenderProductStatusPlatformUpdateInProgress                        WindowsDefenderProductStatus = "platformUpdateInProgress"
+	WindowsDefenderProductStatusPlatformAboutToBeOutdated                       WindowsDefenderProductStatus = "platformAboutToBeOutdated"
+	WindowsDefenderProductStatusSignatureOrPlatformEndOfLifeIsPastOrIsImpending WindowsDefenderProductStatus = "signatureOrPlatformEndOfLifeIsPastOrIsImpending"
+	WindowsDefenderProductStatusWindowsSModeSignaturesInUseOnNonWin10SInstall   WindowsDefenderProductStatus = "windowsSModeSignaturesInUseOnNonWin10SInstall"
+)
+
+type WindowsDeviceHealthState = string
+
+const (
+	WindowsDeviceHealthStateClean              WindowsDeviceHealthState = "clean"
+	WindowsDeviceHealthStateFullScanPending    WindowsDeviceHealthState = "fullScanPending"
+	WindowsDeviceHealthStateRebootPending      WindowsDeviceHealthState = "rebootPending"
+	WindowsDeviceHealthStateManualStepsPending WindowsDeviceHealthState = "manualStepsPending"
+	WindowsDeviceHealthStateOfflineScanPending WindowsDeviceHealthState = "offlineScanPending"
+	WindowsDeviceHealthStateCritical           WindowsDeviceHealthState = "critical"
+)
+
+type RequiredPasswordType = string
+
+const (
+	RequiredPasswordTypeDeviceDefault RequiredPasswordType = "deviceDefault"
+	RequiredPasswordTypeAlphanumeric  RequiredPasswordType = "alphanumeric"
+	RequiredPasswordTypeNumeric       RequiredPasswordType = "numeric"
+)
+
+type DeviceThreatProtectionLevel = string
+
+const (
+	DeviceThreatProtectionLevelUnavailable DeviceThreatProtectionLevel = "unavailable"
+	DeviceThreatProtectionLevelSecured     DeviceThreatProtectionLevel = "secured"
+	DeviceThreatProtectionLevelLow         DeviceThreatProtectionLevel = "low"
+	DeviceThreatProtectionLevelMedium      DeviceThreatProtectionLevel = "medium"
+	DeviceThreatProtectionLevelHigh        DeviceThreatProtectionLevel = "high"
+	DeviceThreatProtectionLevelNotSet      DeviceThreatProtectionLevel = "notSet"
+)
+
+type DeviceAndAppManagementAssignmentSource = string
+
+const (
+	DeviceAndAppManagementAssignmentSourceDirect     DeviceAndAppManagementAssignmentSource = "direct"
+	DeviceAndAppManagementAssignmentSourcePolicySets DeviceAndAppManagementAssignmentSource = "policySets"
+)
+
+type DeviceAndAppManagementAssignmentFilterType = string
+
+const (
+	DeviceAndAppManagementAssignmentFilterTypeNone    DeviceAndAppManagementAssignmentFilterType = "none"
+	DeviceAndAppManagementAssignmentFilterTypeInclude DeviceAndAppManagementAssignmentFilterType = "include"
+	DeviceAndAppManagementAssignmentFilterTypeExclude DeviceAndAppManagementAssignmentFilterType = "exclude"
+)
+
+type DeviceComplianceActionType = string
+
+const (
+	DeviceComplianceActionTypeNoAction                     DeviceComplianceActionType = "noAction"
+	DeviceComplianceActionTypeNotification                 DeviceComplianceActionType = "notification"
+	DeviceComplianceActionTypeBlock                        DeviceComplianceActionType = "block"
+	DeviceComplianceActionTypeRetire                       DeviceComplianceActionType = "retire"
+	DeviceComplianceActionTypeWipe                         DeviceComplianceActionType = "wipe"
+	DeviceComplianceActionTypeRemoveResourceAccessProfiles DeviceComplianceActionType = "removeResourceAccessProfiles"
+	DeviceComplianceActionTypePushNotification             DeviceComplianceActionType = "pushNotification"
+	DeviceComplianceActionTypeRemoteLock                   DeviceComplianceActionType = "remoteLock"
+)
+
+type DeviceManagementConfigurationTemplateFamily = string
+
+const (
+	DeviceManagementConfigurationTemplateFamilyNone                                         DeviceManagementConfigurationTemplateFamily = "none"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityAntivirus                    DeviceManagementConfigurationTemplateFamily = "endpointSecurityAntivirus"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityDiskEncryption               DeviceManagementConfigurationTemplateFamily = "endpointSecurityDiskEncryption"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityFirewall                     DeviceManagementConfigurationTemplateFamily = "endpointSecurityFirewall"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityEndpointDetectionAndResponse DeviceManagementConfigurationTemplateFamily = "endpointSecurityEndpointDetectionAndResponse"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityAttackSurfaceReduction       DeviceManagementConfigurationTemplateFamily = "endpointSecurityAttackSurfaceReduction"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityAccountProtection            DeviceManagementConfigurationTemplateFamily = "endpointSecurityAccountProtection"
+	DeviceManagementConfigurationTemplateFamilyEndpointSecurityApplicationControl           DeviceManagementConfigurationTemplateFamily = "endpointSecurityApplicationControl"
+	DeviceManagementConfigurationTemplateFamilyBaseline                                     DeviceManagementConfigurationTemplateFamily = "baseline"
 )

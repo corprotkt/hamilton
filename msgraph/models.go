@@ -1584,3 +1584,175 @@ type EmployeeOrgData struct {
 	CostCenter *string `json:"costCenter,omitempty"`
 	Division   *string `json:"division,omitempty"`
 }
+
+type DeviceCompliancePolicy interface {
+	GetPolicyBase() *DeviceCompliancePolicyBase
+}
+
+type DeviceCompliancePolicyBase struct {
+	DirectoryObject
+
+	CreatedDateTime      *time.Time `json:"createdDateTime,omitempty"`
+	Description          *string    `json:"description,omitempty"`
+	DisplayName          *string    `json:"displayName,omitempty"`
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	RoleScopeTagIds      *[]string  `json:"roleScopeTagIds,omitempty"`
+	Version              *int32     `json:"version,omitempty"`
+
+	ScheduledActionsForRule *[]DeviceManagementComplianceScheduledActionForRule `json:"scheduledActionsForRule,omitempty"`
+}
+
+type Windows10DeviceCompliancePolicy struct {
+	DeviceCompliancePolicyBase
+	ActiveFirewallRequired                      *bool                          `json:"activeFirewallRequired,omitempty"`
+	AntiSpywareRequired                         *bool                          `json:"antiSpywareRequired,omitempty"`
+	AntivirusRequired                           *bool                          `json:"antivirusRequired,omitempty"`
+	BitLockerEnabled                            *bool                          `json:"bitLockerEnabled,omitempty"`
+	CodeIntegrityEnabled                        *bool                          `json:"codeIntegrityEnabled,omitempty"`
+	ConfigurationManagerComplianceRequired      *bool                          `json:"configurationManagerComplianceRequired,omitempty"`
+	DefenderEnabled                             *bool                          `json:"defenderEnabled,omitempty"`
+	DefenderVersion                             *string                        `json:"defenderVersion,omitempty"`
+	DeviceCompliancePolicyScript                *DeviceCompliancePolicyScript  `json:"deviceCompliancePolicyScript,omitempty"`
+	DeviceThreatProtectionEnabled               *bool                          `json:"deviceThreatProtectionEnabled,omitempty"`
+	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel   `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
+	EarlyLaunchAntiMalwareDriverEnabled         *bool                          `json:"earlyLaunchAntiMalwareDriverEnabled,omitempty"`
+	MobileOsMaximumVersion                      *string                        `json:"mobileOsMaximumVersion,omitempty"`
+	MobileOsMinimumVersion                      *string                        `json:"mobileOsMinimumVersion,omitempty"`
+	OsMaximumVersion                            *string                        `json:"osMaximumVersion,omitempty"`
+	OsMinimumVersion                            *string                        `json:"osMinimumVersion,omitempty"`
+	PasswordBlockSimple                         *bool                          `json:"passwordBlockSimple,omitempty"`
+	PasswordExpirationDays                      *int32                         `json:"passwordExpirationDays,omitempty"`
+	PasswordMinimumCharacterSetCount            *int32                         `json:"passwordMinimumCharacterSetCount,omitempty"`
+	PasswordMinimumLength                       *int32                         `json:"passwordMinimumLength,omitempty"`
+	PasswordMinutesOfInactivityBeforeLock       *int32                         `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
+	PasswordPreviousPasswordBlockCount          *int32                         `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	PasswordRequired                            *bool                          `json:"passwordRequired,omitempty"`
+	PasswordRequiredToUnlockFromIdle            *bool                          `json:"passwordRequiredToUnlockFromIdle,omitempty"`
+	PasswordRequiredType                        *RequiredPasswordType          `json:"passwordRequiredType,omitempty"`
+	RequireHealthyDeviceReport                  *bool                          `json:"requireHealthyDeviceReport,omitempty"`
+	RtpEnabled                                  *bool                          `json:"rtpEnabled,omitempty"`
+	SecureBootEnabled                           *bool                          `json:"secureBootEnabled,omitempty"`
+	SignatureOutOfDate                          *bool                          `json:"signatureOutOfDate,omitempty"`
+	StorageRequireEncryption                    *bool                          `json:"storageRequireEncryption,omitempty"`
+	TpmRequired                                 *bool                          `json:"tpmRequired,omitempty"`
+	ValidOperatingSystemBuildRanges             *[]OperatingSystemVersionRange `json:"validOperatingSystemBuildRanges,omitempty"`
+}
+
+func (a Windows10DeviceCompliancePolicy) GetPolicyBase() *DeviceCompliancePolicyBase {
+	return &a.DeviceCompliancePolicyBase
+}
+
+type OperatingSystemVersionRange struct {
+	Description    *string `json:"description,omitempty"`
+	HighestVersion *string `json:"highestVersion,omitempty"`
+	LowestVersion  *string `json:"lowestVersion,omitempty"`
+}
+
+type DeviceCompliancePolicyScript struct {
+	DeviceComplianceScriptId *string `json:"deviceComplianceScriptId,omitempty"`
+	RulesContent             *[]byte `json:"rulesContent,omitempty"`
+}
+
+type DeviceManagementConfigurationPolicy struct {
+	DirectoryObject
+
+	CreatedDateTime      *time.Time                                            `json:"createdDateTime,omitempty"`
+	CreationSource       *string                                               `json:"creationSource,omitempty"`
+	Description          *string                                               `json:"description,omitempty"`
+	IsAssigned           *bool                                                 `json:"isAssigned,omitempty"`
+	LastModifiedDateTime *time.Time                                            `json:"lastModifiedDateTime,omitempty"`
+	Name                 *string                                               `json:"name,omitempty"`
+	Platforms            *DeviceManagementConfigurationPlatforms               `json:"platforms,omitempty"`
+	RoleScopeTagIds      *[]string                                             `json:"roleScopeTagIds,omitempty"`
+	SettingCount         *int32                                                `json:"settingCount,omitempty"`
+	Technologies         *DeviceManagementConfigurationTechnologies            `json:"technologies,omitempty"`
+	TemplateReference    *DeviceManagementConfigurationPolicyTemplateReference `json:"templateReference,omitempty"`
+}
+
+type DeviceManagementConfigurationPolicyTemplateReference struct {
+	TemplateDisplayName    *string                                      `json:"templateDisplayName,omitempty"`
+	TemplateDisplayVersion *string                                      `json:"templateDisplayVersion,omitempty"`
+	TemplateFamily         *DeviceManagementConfigurationTemplateFamily `json:"templateFamily,omitempty"`
+	TemplateId             *string                                      `json:"templateId,omitempty"`
+}
+
+type IOSDeviceCompliancePolicy struct {
+	DeviceCompliancePolicyBase
+	AdvancedThreatProtectionRequiredSecurityLevel  *DeviceThreatProtectionLevel `json:"advancedThreatProtectionRequiredSecurityLevel,omitempty"`
+	DeviceThreatProtectionEnabled                  *bool                        `json:"deviceThreatProtectionEnabled,omitempty"`
+	DeviceThreatProtectionRequiredSecurityLevel    *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
+	ManagedEmailProfileRequired                    *bool                        `json:"managedEmailProfileRequired,omitempty"`
+	OsMaximumBuildVersion                          *string                      `json:"osMaximumBuildVersion,omitempty"`
+	OsMaximumVersion                               *string                      `json:"osMaximumVersion,omitempty"`
+	OsMinimumBuildVersion                          *string                      `json:"osMinimumBuildVersion,omitempty"`
+	OsMinimumVersion                               *string                      `json:"osMinimumVersion,omitempty"`
+	PasscodeBlockSimple                            *bool                        `json:"passcodeBlockSimple,omitempty"`
+	PasscodeExpirationDays                         *int32                       `json:"passcodeExpirationDays,omitempty"`
+	PasscodeMinimumCharacterSetCount               *int32                       `json:"passcodeMinimumCharacterSetCount,omitempty"`
+	PasscodeMinimumLength                          *int32                       `json:"passcodeMinimumLength,omitempty"`
+	PasscodeMinutesOfInactivityBeforeLock          *int32                       `json:"passcodeMinutesOfInactivityBeforeLock,omitempty"`
+	PasscodeMinutesOfInactivityBeforeScreenTimeout *int32                       `json:"passcodeMinutesOfInactivityBeforeScreenTimeout,omitempty"`
+	PasscodePreviousPasscodeBlockCount             *int32                       `json:"passcodePreviousPasscodeBlockCount,omitempty"`
+	PasscodeRequired                               *bool                        `json:"passcodeRequired,omitempty"`
+	PasscodeRequiredType                           *RequiredPasswordType        `json:"passcodeRequiredType,omitempty"`
+	RestrictedApps                                 *[]AppListItem               `json:"restrictedApps,omitempty"`
+	SecurityBlockJailbrokenDevices                 *bool                        `json:"securityBlockJailbrokenDevices,omitempty"`
+}
+
+func (a IOSDeviceCompliancePolicy) GetPolicyBase() *DeviceCompliancePolicyBase {
+	return &a.DeviceCompliancePolicyBase
+}
+
+type AppListItem struct {
+	AppId       *string `json:"appId,omitempty"`
+	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Publisher   *string `json:"publisher,omitempty"`
+}
+
+type DeviceAndAppManagementAssignmentTarget interface{}
+
+type DeviceAndAppManagementAssignmentTargetBase struct {
+	ODataType                                  *odata.Type `json:"@odata.type,omitempty"`
+	DeviceAndAppManagementAssignmentFilterId   *string     `json:"deviceAndAppManagementAssignmentFilterId,omitempty"`
+	DeviceAndAppManagementAssignmentFilterType *string     `json:"deviceAndAppManagementAssignmentFilterType,omitempty"`
+}
+
+type DeviceAndAppManagementAssignmentTargetAllDevices struct {
+	DeviceAndAppManagementAssignmentTargetBase
+}
+
+type DeviceAndAppManagementAssignmentTargetAllLicensedUsers struct {
+	DeviceAndAppManagementAssignmentTargetBase
+}
+
+type DeviceAndAppManagementAssignmentConfigurationManagerCollectionAssignmentTarget struct {
+	DeviceAndAppManagementAssignmentTargetBase
+	CollectionID *string `json:"collectionId,omitempty"`
+}
+
+type DeviceAndAppManagementAssignmentGroupAssignmentTarget struct {
+	DeviceAndAppManagementAssignmentTargetBase
+	GroupID *string `json:"groupId,omitempty"`
+}
+
+type DeviceCompliancePolicyAssignment struct {
+	DirectoryObject
+	Source   *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
+	SourceId *string                                 `json:"sourceId,omitempty"`
+	Target   DeviceAndAppManagementAssignmentTarget  `json:"target,omitempty"`
+}
+
+type DeviceManagementComplianceScheduledActionForRule struct {
+	DirectoryObject
+	RuleName                      *string                       `json:"ruleName,omitempty"`
+	ScheduledActionConfigurations *[]DeviceComplianceActionItem `json:"scheduledActionConfigurations,omitempty"`
+}
+
+type DeviceComplianceActionItem struct {
+	DirectoryObject
+	ActionType                *DeviceComplianceActionType `json:"actionType,omitempty"`
+	GracePeriodHours          *int32                      `json:"gracePeriodHours,omitempty"`
+	NotificationMessageCCList *[]string                   `json:"notificationMessageCCList,omitempty"`
+	NotificationTemplateId    *string                     `json:"notificationTemplateId,omitempty"`
+}
