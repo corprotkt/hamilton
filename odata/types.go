@@ -21,7 +21,7 @@ const (
 	ShortTypeDirectoryRoleTemplate                       ShortType = "directoryRoleTemplate"
 	ShortTypeDomain                                      ShortType = "domain"
 	ShortTypeEmailAuthenticationMethod                   ShortType = "emailAuthenticationMethod"
-	ShortTypeExternalSponsors              			     ShortType = "externalSponsors"
+	ShortTypeExternalSponsors                            ShortType = "externalSponsors"
 	ShortTypeFido2AuthenticationMethod                   ShortType = "fido2AuthenticationMethod"
 	ShortTypeGroup                                       ShortType = "group"
 	ShortTypeGroupMembers                                ShortType = "groupMembers"
@@ -39,6 +39,9 @@ const (
 	ShortTypeTemporaryAccessPassAuthenticationMethod     ShortType = "temporaryAccessPassAuthenticationMethod"
 	ShortTypeUser                                        ShortType = "user"
 	ShortTypeWindowsHelloForBusinessAuthenticationMethod ShortType = "windowsHelloForBusinessAuthenticationMethod"
+	ShortTypeDeviceCompliancePolicyIOS                   ShortType = "iosCompliancePolicy"
+	ShortTypeDeviceCompliancePolicyWindows10             ShortType = "windows10CompliancePolicy"
+	ShortTypeDeviceComplianceAssignmentTargetAllSDevices ShortType = "allDevicesAssignmentTarget"
 )
 
 type Type = string
@@ -80,4 +83,7 @@ const (
 	TypeTemporaryAccessPassAuthenticationMethod     Type = "#microsoft.graph.temporaryAccessPassAuthenticationMethod"
 	TypeUser                                        Type = "#microsoft.graph.user"
 	TypeWindowsHelloForBusinessAuthenticationMethod Type = "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod"
+	TypeDeviceCompliancePolicyIOS                   Type = "#microsoft.graph.iosCompliancePolicy"
+	TypeDeviceCompliancePolicyWindows10             Type = "#microsoft.graph.windows10CompliancePolicy"
+	TypeDeviceComplianceAssignmentTargetAllSDevices Type = "#microsoft.graph.allDevicesAssignmentTarget"
 )
