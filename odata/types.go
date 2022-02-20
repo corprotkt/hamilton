@@ -42,6 +42,7 @@ const (
 	ShortTypeDeviceCompliancePolicyIOS                   ShortType = "iosCompliancePolicy"
 	ShortTypeDeviceCompliancePolicyWindows10             ShortType = "windows10CompliancePolicy"
 	ShortTypeDeviceComplianceAssignmentTargetAllSDevices ShortType = "allDevicesAssignmentTarget"
+	ShortTypeDeviceComplianceAssignmentTargetGroup       ShortType = "groupAssignmentTarget"
 )
 
 type Type = string
@@ -85,5 +86,6 @@ const (
 	TypeWindowsHelloForBusinessAuthenticationMethod Type = "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod"
 	TypeDeviceCompliancePolicyIOS                   Type = "#microsoft.graph.iosCompliancePolicy"
 	TypeDeviceCompliancePolicyWindows10             Type = "#microsoft.graph.windows10CompliancePolicy"
-	TypeDeviceComplianceAssignmentTargetAllSDevices Type = "#microsoft.graph.allDevicesAssignmentTarget"
+	TypeDeviceComplianceAssignmentTargetAllDevices  Type = "#microsoft.graph.allDevicesAssignmentTarget"
+	TypeDeviceComplianceAssignmentTargetGroup       Type = "#microsoft.graph.groupAssignmentTarget"
 )

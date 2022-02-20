@@ -14,6 +14,12 @@ func TestDeviceCompliancePolicy(t *testing.T) {
 	c := test.NewTest(t)
 	defer c.CancelFunc()
 
+	group := createTestGroup(c, t)
+
+	if group != nil {
+		t.Logf("Group created id %s\n", *group.ID)
+	}
+
 	testDeviceCompliancePolicyList(t, c)
 	win10_policy := testWindows10CompliancePolicyCreate(t, c)
 
@@ -30,14 +36,40 @@ func TestDeviceCompliancePolicy(t *testing.T) {
 	testDeviceCompliancePolicyGet(t, c, *win10_policy.ID)
 	testDeviceCompliancePolicyGet(t, c, *ios_policy.ID)
 
-	testDeviceCompliancePolicyAddAssignments(t, c, *win10_policy.ID)
-	testDeviceCompliancePolicyAddAssignments(t, c, *ios_policy.ID)
+	testDeviceCompliancePolicyAddAssignments(t, c, group, *win10_policy.ID)
+	testDeviceCompliancePolicyAddAssignments(t, c, group, *ios_policy.ID)
 
 	testDeviceCompliancePolicyListAssignments(t, c, *win10_policy.ID)
 	testDeviceCompliancePolicyListAssignments(t, c, *ios_policy.ID)
 
 	testDeviceCompliancePolicyDelete(t, c, *win10_policy.ID)
 	testDeviceCompliancePolicyDelete(t, c, *ios_policy.ID)
+
+	if group != nil {
+		c.GroupsClient.Delete(c.Context, *group.ID)
+	}
+}
+
+// Attempts to create a test group for policy assignment. Failures will be
+// silently ignored.
+func createTestGroup(c *test.Test, t *testing.T) *msgraph.Group {
+	group_client := c.GroupsClient
+
+	group_name := utils.StringPtr(fmt.Sprintf("test-group-for-policy-%s", c.RandomString))
+
+	newGroup := msgraph.Group{
+		DisplayName:     group_name,
+		MailEnabled:     utils.BoolPtr(false),
+		MailNickname:    group_name,
+		SecurityEnabled: utils.BoolPtr(true),
+	}
+
+	group, status, error := group_client.Create(c.Context, newGroup)
+
+	if status < 200 || status >= 300 || error != nil {
+		group = nil
+	}
+	return group
 }
 
 func testDeviceCompliancePolicyList(t *testing.T, c *test.Test) {
@@ -208,9 +240,14 @@ func testDeviceCompliancePolicyListAssignments(t *testing.T, c *test.Test, id st
 	}
 }
 
-func testDeviceCompliancePolicyAddAssignments(t *testing.T, c *test.Test, id string) {
+func testDeviceCompliancePolicyAddAssignments(t *testing.T, c *test.Test, group *msgraph.Group, id string) {
 	assignments := []msgraph.DeviceCompliancePolicyAssignment{
-		{Target: *msgraph.NewAllDevicesAssignmentTarget()}}
+		{Target: *msgraph.NewAllDevicesAssignmentTarget()},
+	}
+
+	if group != nil {
+		assignments = append(assignments, msgraph.DeviceCompliancePolicyAssignment{Target: *msgraph.NewGroupAssignmentTarget(group)})
+	}
 
 	status, err := c.DeviceCompliancePolicyClient.AddAssignments(c.Context, id, assignments)
 
