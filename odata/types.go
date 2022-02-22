@@ -43,6 +43,8 @@ const (
 	ShortTypeDeviceCompliancePolicyWindows10             ShortType = "windows10CompliancePolicy"
 	ShortTypeDeviceComplianceAssignmentTargetAllSDevices ShortType = "allDevicesAssignmentTarget"
 	ShortTypeDeviceComplianceAssignmentTargetGroup       ShortType = "groupAssignmentTarget"
+	ShortTypeWindows10GeneralConfiguration               ShortType = "windows10GeneralConfiguration"
+	ShortTypeAospDeviceOwnerDeviceConfiguration          ShortType = "aospDeviceOwnerDeviceConfiguration"
 )
 
 type Type = string
@@ -88,4 +90,6 @@ const (
 	TypeDeviceCompliancePolicyWindows10             Type = "#microsoft.graph.windows10CompliancePolicy"
 	TypeDeviceComplianceAssignmentTargetAllDevices  Type = "#microsoft.graph.allDevicesAssignmentTarget"
 	TypeDeviceComplianceAssignmentTargetGroup       Type = "#microsoft.graph.groupAssignmentTarget"
+	TypeWindows10GeneralConfiguration               Type = "#microsoft.graph.windows10GeneralConfiguration"
+	TypeAospDeviceOwnerDeviceConfiguration          Type = "#microsoft.graph.aospDeviceOwnerDeviceConfiguration"
 )
