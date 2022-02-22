@@ -1593,12 +1593,14 @@ type EmployeeOrgData struct {
 	Division   *string `json:"division,omitempty"`
 }
 
+type Entity = DirectoryObject
+
 type DeviceCompliancePolicy interface {
 	GetPolicyBase() *DeviceCompliancePolicyBase
 }
 
 type DeviceCompliancePolicyBase struct {
-	DirectoryObject
+	Entity
 
 	CreatedDateTime      *time.Time `json:"createdDateTime,omitempty"`
 	Description          *string    `json:"description,omitempty"`
@@ -1662,7 +1664,7 @@ type DeviceCompliancePolicyScript struct {
 }
 
 type DeviceManagementConfigurationPolicy struct {
-	DirectoryObject
+	Entity
 
 	CreatedDateTime      *time.Time                                            `json:"createdDateTime,omitempty"`
 	CreationSource       *string                                               `json:"creationSource,omitempty"`
@@ -1745,20 +1747,23 @@ type DeviceAndAppManagementAssignmentGroupAssignmentTarget struct {
 }
 
 type DeviceCompliancePolicyAssignment struct {
-	DirectoryObject
+	Entity
+
 	Source   *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
 	SourceId *string                                 `json:"sourceId,omitempty"`
 	Target   DeviceAndAppManagementAssignmentTarget  `json:"target,omitempty"`
 }
 
 type DeviceManagementComplianceScheduledActionForRule struct {
-	DirectoryObject
+	Entity
+
 	RuleName                      *string                       `json:"ruleName,omitempty"`
 	ScheduledActionConfigurations *[]DeviceComplianceActionItem `json:"scheduledActionConfigurations,omitempty"`
 }
 
 type DeviceComplianceActionItem struct {
-	DirectoryObject
+	Entity
+
 	ActionType                *DeviceComplianceActionType `json:"actionType,omitempty"`
 	GracePeriodHours          *int32                      `json:"gracePeriodHours,omitempty"`
 	NotificationMessageCCList *[]string                   `json:"notificationMessageCCList,omitempty"`
@@ -1766,7 +1771,7 @@ type DeviceComplianceActionItem struct {
 }
 
 type ManagedDevice struct {
-	DirectoryObject
+	Entity
 
 	CloudPcRemoteActionResults                *[]CloudPcRemoteActionResult               `json:"cloudPcRemoteActionResults,omitempty"`
 	AadRegistered                             *bool                                      `json:"aadRegistered,omitempty"`
@@ -1854,7 +1859,7 @@ type WindowsManagedDevice struct {
 }
 
 type WindowsProtectionState struct {
-	DirectoryObject
+	Entity
 
 	AntiMalwareVersion             *string                       `json:"antiMalwareVersion,omitempty"`
 	DeviceState                    *WindowsDeviceHealthState     `json:"deviceState,omitempty"`
