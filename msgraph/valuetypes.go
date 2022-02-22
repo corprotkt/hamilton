@@ -1033,3 +1033,324 @@ const (
 	DeviceGuardVirtualizationBasedSecurityStateDoesNotMeetHardwareRequirements DeviceGuardVirtualizationBasedSecurityState = "doesNotMeetHardwareRequirements"
 	DeviceGuardVirtualizationBasedSecurityStateOther                           DeviceGuardVirtualizationBasedSecurityState = "other"
 )
+
+type DefenderPromptForSampleSubmission = string
+
+const (
+	DefenderPromptForSampleSubmissionUserDefined                     DefenderPromptForSampleSubmission = "userDefined"
+	DefenderPromptForSampleSubmissionAlwaysPrompt                    DefenderPromptForSampleSubmission = "alwaysPrompt"
+	DefenderPromptForSampleSubmissionPromptBeforeSendingPersonalData DefenderPromptForSampleSubmission = "promptBeforeSendingPersonalData"
+	DefenderPromptForSampleSubmissionNeverSendData                   DefenderPromptForSampleSubmission = "neverSendData"
+	DefenderPromptForSampleSubmissionSendAllDataWithoutPrompting     DefenderPromptForSampleSubmission = "sendAllDataWithoutPrompting"
+)
+
+type PowerActionType = string
+
+const (
+	PowerActionTypeNotConfigured PowerActionType = "notConfigured"
+	PowerActionTypeNoAction      PowerActionType = "noAction"
+	PowerActionTypeSleep         PowerActionType = "sleep"
+	PowerActionTypeHibernate     PowerActionType = "hibernate"
+	PowerActionTypeShutdown      PowerActionType = "shutdown"
+)
+
+type Windows10AppsUpdateRecurrence = string
+
+const (
+	Windows10AppsUpdateRecurrenceNone    Windows10AppsUpdateRecurrence = "none"
+	Windows10AppsUpdateRecurrenceDaily   Windows10AppsUpdateRecurrence = "daily"
+	Windows10AppsUpdateRecurrenceWeekly  Windows10AppsUpdateRecurrence = "weekly"
+	Windows10AppsUpdateRecurrenceMonthly Windows10AppsUpdateRecurrence = "monthly"
+)
+
+type EdgeKioskModeRestrictionType = string
+
+const (
+	EdgeKioskModeRestrictionTypeNotConfigured           EdgeKioskModeRestrictionType = "notConfigured"
+	EdgeKioskModeRestrictionTypeDigitalSignage          EdgeKioskModeRestrictionType = "digitalSignage"
+	EdgeKioskModeRestrictionTypeNormalMode              EdgeKioskModeRestrictionType = "normalMode"
+	EdgeKioskModeRestrictionTypePublicBrowsingSingleApp EdgeKioskModeRestrictionType = "publicBrowsingSingleApp"
+	EdgeKioskModeRestrictionTypePublicBrowsingMultiApp  EdgeKioskModeRestrictionType = "publicBrowsingMultiApp"
+)
+
+type DefenderMonitorFileActivity = string
+
+const (
+	DefenderMonitorFileActivityUserDefined              DefenderMonitorFileActivity = "userDefined"
+	DefenderMonitorFileActivityDisable                  DefenderMonitorFileActivity = "disable"
+	DefenderMonitorFileActivityMonitorAllFiles          DefenderMonitorFileActivity = "monitorAllFiles"
+	DefenderMonitorFileActivityMonitorIncomingFilesOnly DefenderMonitorFileActivity = "monitorIncomingFilesOnly"
+	DefenderMonitorFileActivityMonitorOutgoingFilesOnly DefenderMonitorFileActivity = "monitorOutgoingFilesOnly"
+)
+
+type DefenderThreatAction = string
+
+const (
+	DefenderThreatActionDeviceDefault DefenderThreatAction = "deviceDefault"
+	DefenderThreatActionClean         DefenderThreatAction = "clean"
+	DefenderThreatActionQuarantine    DefenderThreatAction = "quarantine"
+	DefenderThreatActionRemove        DefenderThreatAction = "remove"
+	DefenderThreatActionAllow         DefenderThreatAction = "allow"
+	DefenderThreatActionUserDefined   DefenderThreatAction = "userDefined"
+	DefenderThreatActionBlock         DefenderThreatAction = "block"
+)
+
+type InternetExplorerMessageSetting = string
+
+const (
+	InternetExplorerMessageSettingNotConfigured InternetExplorerMessageSetting = "notConfigured"
+	InternetExplorerMessageSettingDisabled      InternetExplorerMessageSetting = "disabled"
+	InternetExplorerMessageSettingEnabled       InternetExplorerMessageSetting = "enabled"
+	InternetExplorerMessageSettingKeepGoing     InternetExplorerMessageSetting = "keepGoing"
+)
+
+type DefenderProtectionType = string
+
+const (
+	DefenderProtectionTypeUserDefined   DefenderProtectionType = "userDefined"
+	DefenderProtectionTypeEnable        DefenderProtectionType = "enable"
+	DefenderProtectionTypeAuditMode     DefenderProtectionType = "auditMode"
+	DefenderProtectionTypeWarn          DefenderProtectionType = "warn"
+	DefenderProtectionTypeNotConfigured DefenderProtectionType = "notConfigured"
+)
+
+type WindowsSpotlightEnablementSettings = string
+
+const (
+	WindowsSpotlightEnablementSettingsNotConfigured WindowsSpotlightEnablementSettings = "notConfigured"
+	WindowsSpotlightEnablementSettingsDisabled      WindowsSpotlightEnablementSettings = "disabled"
+	WindowsSpotlightEnablementSettingsEnabled       WindowsSpotlightEnablementSettings = "enabled"
+)
+
+type DefenderCloudBlockLevelType = string
+
+const (
+	DefenderCloudBlockLevelTypeNotConfigured DefenderCloudBlockLevelType = "notConfigured"
+	DefenderCloudBlockLevelTypeHigh          DefenderCloudBlockLevelType = "high"
+	DefenderCloudBlockLevelTypeHighPlus      DefenderCloudBlockLevelType = "highPlus"
+	DefenderCloudBlockLevelTypeZeroTolerance DefenderCloudBlockLevelType = "zeroTolerance"
+)
+
+type Windows10DeviceModeType = string
+
+const (
+	Windows10DeviceModeTypeStandardConfiguration Windows10DeviceModeType = "standardConfiguration"
+	Windows10DeviceModeTypeSModeConfiguration    Windows10DeviceModeType = "sModeConfiguration"
+)
+
+type Windows10EditionType = string
+
+const (
+	Windows10EditionTypeWindows10Enterprise               Windows10EditionType = "windows10Enterprise"
+	Windows10EditionTypeWindows10EnterpriseN              Windows10EditionType = "windows10EnterpriseN"
+	Windows10EditionTypeWindows10Education                Windows10EditionType = "windows10Education"
+	Windows10EditionTypeWindows10EducationN               Windows10EditionType = "windows10EducationN"
+	Windows10EditionTypeWindows10MobileEnterprise         Windows10EditionType = "windows10MobileEnterprise"
+	Windows10EditionTypeWindows10HolographicEnterprise    Windows10EditionType = "windows10HolographicEnterprise"
+	Windows10EditionTypeWindows10Professional             Windows10EditionType = "windows10Professional"
+	Windows10EditionTypeWindows10ProfessionalN            Windows10EditionType = "windows10ProfessionalN"
+	Windows10EditionTypeWindows10ProfessionalEducation    Windows10EditionType = "windows10ProfessionalEducation"
+	Windows10EditionTypeWindows10ProfessionalEducationN   Windows10EditionType = "windows10ProfessionalEducationN"
+	Windows10EditionTypeWindows10ProfessionalWorkstation  Windows10EditionType = "windows10ProfessionalWorkstation"
+	Windows10EditionTypeWindows10ProfessionalWorkstationN Windows10EditionType = "windows10ProfessionalWorkstationN"
+	Windows10EditionTypeNotConfigured                     Windows10EditionType = "notConfigured"
+	Windows10EditionTypeWindows10Home                     Windows10EditionType = "windows10Home"
+	Windows10EditionTypeWindows10HomeChina                Windows10EditionType = "windows10HomeChina"
+	Windows10EditionTypeWindows10HomeN                    Windows10EditionType = "windows10HomeN"
+	Windows10EditionTypeWindows10HomeSingleLanguage       Windows10EditionType = "windows10HomeSingleLanguage"
+	Windows10EditionTypeWindows10Mobile                   Windows10EditionType = "windows10Mobile"
+	Windows10EditionTypeWindows10IoTCore                  Windows10EditionType = "windows10IoTCore"
+	Windows10EditionTypeWindows10IoTCoreCommercial        Windows10EditionType = "windows10IoTCoreCommercial"
+)
+
+type Enablement = string
+
+const (
+	EnablementNotConfigured Enablement = "notConfigured"
+	EnablementEnabled       Enablement = "enabled"
+	EnablementDisabled      Enablement = "disabled"
+)
+
+type BrowserSyncSetting = string
+
+const (
+	BrowserSyncSettingNotConfigured           BrowserSyncSetting = "notConfigured"
+	BrowserSyncSettingBlockedWithUserOverride BrowserSyncSetting = "blockedWithUserOverride"
+	BrowserSyncSettingBlocked                 BrowserSyncSetting = "blocked"
+)
+
+type DeviceManagementApplicabilityRuleType = string
+
+const (
+	DeviceManagementApplicabilityRuleTypeInclude DeviceManagementApplicabilityRuleType = "include"
+	DeviceManagementApplicabilityRuleTypeExclude DeviceManagementApplicabilityRuleType = "exclude"
+)
+
+type StateManagementSetting = string
+
+const (
+	StateManagementSettingNotConfigured StateManagementSetting = "notConfigured"
+	StateManagementSettingBlocked       StateManagementSetting = "blocked"
+	StateManagementSettingAllowed       StateManagementSetting = "allowed"
+)
+
+type DefenderPotentiallyUnwantedAppAction = string
+
+const (
+	DefenderPotentiallyUnwantedAppActionDeviceDefault DefenderPotentiallyUnwantedAppAction = "deviceDefault"
+	DefenderPotentiallyUnwantedAppActionBlock         DefenderPotentiallyUnwantedAppAction = "block"
+	DefenderPotentiallyUnwantedAppActionAudit         DefenderPotentiallyUnwantedAppAction = "audit"
+)
+
+type WeeklySchedule = string
+
+const (
+	WeeklyScheduleUserDefined     WeeklySchedule = "userDefined"
+	WeeklyScheduleEveryday        WeeklySchedule = "everyday"
+	WeeklyScheduleSunday          WeeklySchedule = "sunday"
+	WeeklyScheduleMonday          WeeklySchedule = "monday"
+	WeeklyScheduleTuesday         WeeklySchedule = "tuesday"
+	WeeklyScheduleWednesday       WeeklySchedule = "wednesday"
+	WeeklyScheduleThursday        WeeklySchedule = "thursday"
+	WeeklyScheduleFriday          WeeklySchedule = "friday"
+	WeeklyScheduleSaturday        WeeklySchedule = "saturday"
+	WeeklyScheduleNoScheduledScan WeeklySchedule = "noScheduledScan"
+)
+
+type EdgeOpenOptions = string
+
+const (
+	EdgeOpenOptionsNotConfigured EdgeOpenOptions = "notConfigured"
+	EdgeOpenOptionsStartPage     EdgeOpenOptions = "startPage"
+	EdgeOpenOptionsNewTabPage    EdgeOpenOptions = "newTabPage"
+	EdgeOpenOptionsPreviousPages EdgeOpenOptions = "previousPages"
+	EdgeOpenOptionsSpecificPages EdgeOpenOptions = "specificPages"
+)
+
+type SafeSearchFilterType = string
+
+const (
+	SafeSearchFilterTypeUserDefined SafeSearchFilterType = "userDefined"
+	SafeSearchFilterTypeStrict      SafeSearchFilterType = "strict"
+	SafeSearchFilterTypeModerate    SafeSearchFilterType = "moderate"
+)
+
+type AppInstallControlType = string
+
+const (
+	AppInstallControlTypeNotConfigured   AppInstallControlType = "notConfigured"
+	AppInstallControlTypeAnywhere        AppInstallControlType = "anywhere"
+	AppInstallControlTypeStoreOnly       AppInstallControlType = "storeOnly"
+	AppInstallControlTypeRecommendations AppInstallControlType = "recommendations"
+	AppInstallControlTypePreferStore     AppInstallControlType = "preferStore"
+)
+
+type EdgeTelemetryMode = string
+
+const (
+	EdgeTelemetryModeNotConfigured       EdgeTelemetryMode = "notConfigured"
+	EdgeTelemetryModeIntranet            EdgeTelemetryMode = "intranet"
+	EdgeTelemetryModeInternet            EdgeTelemetryMode = "internet"
+	EdgeTelemetryModeIntranetAndInternet EdgeTelemetryMode = "intranetAndInternet"
+)
+
+type InkAccessSetting = string
+
+const (
+	InkAccessSettingNotConfigured InkAccessSetting = "notConfigured"
+	InkAccessSettingEnabled       InkAccessSetting = "enabled"
+	InkAccessSettingDisabled      InkAccessSetting = "disabled"
+)
+
+type DefenderScanType = string
+
+const (
+	DefenderScanTypeUserDefined DefenderScanType = "userDefined"
+	DefenderScanTypeDisabled    DefenderScanType = "disabled"
+	DefenderScanTypeQuick       DefenderScanType = "quick"
+	DefenderScanTypeFull        DefenderScanType = "full"
+)
+
+type DiagnosticDataSubmissionMode = string
+
+const (
+	DiagnosticDataSubmissionModeUserDefined DiagnosticDataSubmissionMode = "userDefined"
+	DiagnosticDataSubmissionModeNone        DiagnosticDataSubmissionMode = "none"
+	DiagnosticDataSubmissionModeBasic       DiagnosticDataSubmissionMode = "basic"
+	DiagnosticDataSubmissionModeEnhanced    DiagnosticDataSubmissionMode = "enhanced"
+	DiagnosticDataSubmissionModeFull        DiagnosticDataSubmissionMode = "full"
+)
+
+type DefenderSubmitSamplesConsentType = string
+
+const (
+	DefenderSubmitSamplesConsentTypeSendSafeSamplesAutomatically DefenderSubmitSamplesConsentType = "sendSafeSamplesAutomatically"
+	DefenderSubmitSamplesConsentTypeAlwaysPrompt                 DefenderSubmitSamplesConsentType = "alwaysPrompt"
+	DefenderSubmitSamplesConsentTypeNeverSend                    DefenderSubmitSamplesConsentType = "neverSend"
+	DefenderSubmitSamplesConsentTypeSendAllSamplesAutomatically  DefenderSubmitSamplesConsentType = "sendAllSamplesAutomatically"
+)
+
+type SignInAssistantOptions = string
+
+const (
+	SignInAssistantOptionsNotConfigured SignInAssistantOptions = "notConfigured"
+	SignInAssistantOptionsDisabled      SignInAssistantOptions = "disabled"
+)
+
+type ConfigurationUsage = string
+
+const (
+	ConfigurationUsageBlocked       ConfigurationUsage = "blocked"
+	ConfigurationUsageRequired      ConfigurationUsage = "required"
+	ConfigurationUsageAllowed       ConfigurationUsage = "allowed"
+	ConfigurationUsageNotConfigured ConfigurationUsage = "notConfigured"
+)
+
+type EdgeCookiePolicy = string
+
+const (
+	EdgeCookiePolicyUserDefined     EdgeCookiePolicy = "userDefined"
+	EdgeCookiePolicyAllow           EdgeCookiePolicy = "allow"
+	EdgeCookiePolicyBlockThirdParty EdgeCookiePolicy = "blockThirdParty"
+	EdgeCookiePolicyBlockAll        EdgeCookiePolicy = "blockAll"
+)
+
+type VisibilitySetting = string
+
+const (
+	VisibilitySettingNotConfigured VisibilitySetting = "notConfigured"
+	VisibilitySettingHide          VisibilitySetting = "hide"
+	VisibilitySettingShow          VisibilitySetting = "show"
+)
+
+type WindowsStartMenuModeType = string
+
+const (
+	WindowsStartMenuModeTypeUserDefined   WindowsStartMenuModeType = "userDefined"
+	WindowsStartMenuModeTypeFullScreen    WindowsStartMenuModeType = "fullScreen"
+	WindowsStartMenuModeTypeNonFullScreen WindowsStartMenuModeType = "nonFullScreen"
+)
+
+type WindowsStartMenuAppListVisibilityType = string
+
+const (
+	WindowsStartMenuAppListVisibilityTypeUserDefined        WindowsStartMenuAppListVisibilityType = "userDefined"
+	WindowsStartMenuAppListVisibilityTypeCollapse           WindowsStartMenuAppListVisibilityType = "collapse"
+	WindowsStartMenuAppListVisibilityTypeRemove             WindowsStartMenuAppListVisibilityType = "remove"
+	WindowsStartMenuAppListVisibilityTypeDisableSettingsApp WindowsStartMenuAppListVisibilityType = "disableSettingsApp"
+)
+
+type AndroidDeviceOwnerRequiredPasswordType = string
+
+const (
+	AndroidDeviceOwnerRequiredPasswordTypeDeviceDefault           AndroidDeviceOwnerRequiredPasswordType = "deviceDefault"
+	AndroidDeviceOwnerRequiredPasswordTypeRequired                AndroidDeviceOwnerRequiredPasswordType = "required"
+	AndroidDeviceOwnerRequiredPasswordTypeNumeric                 AndroidDeviceOwnerRequiredPasswordType = "numeric"
+	AndroidDeviceOwnerRequiredPasswordTypeNumericComplex          AndroidDeviceOwnerRequiredPasswordType = "numericComplex"
+	AndroidDeviceOwnerRequiredPasswordTypeAlphabetic              AndroidDeviceOwnerRequiredPasswordType = "alphabetic"
+	AndroidDeviceOwnerRequiredPasswordTypeAlphanumeric            AndroidDeviceOwnerRequiredPasswordType = "alphanumeric"
+	AndroidDeviceOwnerRequiredPasswordTypeAlphanumericWithSymbols AndroidDeviceOwnerRequiredPasswordType = "alphanumericWithSymbols"
+	AndroidDeviceOwnerRequiredPasswordTypeLowSecurityBiometric    AndroidDeviceOwnerRequiredPasswordType = "lowSecurityBiometric"
+	AndroidDeviceOwnerRequiredPasswordTypeCustomPassword          AndroidDeviceOwnerRequiredPasswordType = "customPassword"
+)
+
