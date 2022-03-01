@@ -1354,3 +1354,49 @@ const (
 	AndroidDeviceOwnerRequiredPasswordTypeCustomPassword          AndroidDeviceOwnerRequiredPasswordType = "customPassword"
 )
 
+type DeviceManagementConfigurationDeviceMode = string
+
+const (
+	DeviceManagementConfigurationDeviceModeNone  DeviceManagementConfigurationDeviceMode = "none"
+	DeviceManagementConfigurationDeviceModeKiosk DeviceManagementConfigurationDeviceMode = "kiosk"
+)
+
+type DeviceManagementConfigurationSettingUsage = string
+
+const (
+	DeviceManagementConfigurationSettingUsageNone          DeviceManagementConfigurationSettingUsage = "none"
+	DeviceManagementConfigurationSettingUsageConfiguration DeviceManagementConfigurationSettingUsage = "configuration"
+	DeviceManagementConfigurationSettingUsageCompliance    DeviceManagementConfigurationSettingUsage = "compliance"
+)
+
+type DeviceManagementConfigurationSettingVisibility = string
+
+const (
+	DeviceManagementConfigurationSettingVisibilityNone            DeviceManagementConfigurationSettingVisibility = "none"
+	DeviceManagementConfigurationSettingVisibilitySettingsCatalog DeviceManagementConfigurationSettingVisibility = "settingsCatalog"
+	DeviceManagementConfigurationSettingVisibilityTemplate        DeviceManagementConfigurationSettingVisibility = "template"
+)
+
+type DeviceManagementConfigurationSettingAccessTypes = string
+
+const (
+	DeviceManagementConfigurationSettingAccessTypesNone    DeviceManagementConfigurationSettingAccessTypes = "none"
+	DeviceManagementConfigurationSettingAccessTypesAdd     DeviceManagementConfigurationSettingAccessTypes = "add"
+	DeviceManagementConfigurationSettingAccessTypesCopy    DeviceManagementConfigurationSettingAccessTypes = "copy"
+	DeviceManagementConfigurationSettingAccessTypesDelete  DeviceManagementConfigurationSettingAccessTypes = "delete"
+	DeviceManagementConfigurationSettingAccessTypesGet     DeviceManagementConfigurationSettingAccessTypes = "get"
+	DeviceManagementConfigurationSettingAccessTypesReplace DeviceManagementConfigurationSettingAccessTypes = "replace"
+	DeviceManagementConfigurationSettingAccessTypesExecute DeviceManagementConfigurationSettingAccessTypes = "execute"
+)
+
+type DeviceManagementConfigurationControlType = string
+
+const (
+	DeviceManagementConfigurationControlTypeDefault         DeviceManagementConfigurationControlType = "default"
+	DeviceManagementConfigurationControlTypeDropdown        DeviceManagementConfigurationControlType = "dropdown"
+	DeviceManagementConfigurationControlTypeSmallTextBox    DeviceManagementConfigurationControlType = "smallTextBox"
+	DeviceManagementConfigurationControlTypeLargeTextBox    DeviceManagementConfigurationControlType = "largeTextBox"
+	DeviceManagementConfigurationControlTypeToggle          DeviceManagementConfigurationControlType = "toggle"
+	DeviceManagementConfigurationControlTypeMultiheaderGrid DeviceManagementConfigurationControlType = "multiheaderGrid"
+	DeviceManagementConfigurationControlTypeContextPane     DeviceManagementConfigurationControlType = "contextPane"
+)

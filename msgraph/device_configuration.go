@@ -50,7 +50,6 @@ func NewDeviceConfigurationClient(tenantId string) *DeviceConfigurationClient {
 
 // List returns a list of DeviceConfigurations, optionally queried using OData.
 func (c *DeviceConfigurationClient) List(ctx context.Context, query odata.Query) (*[]DeviceConfiguration, int, error) {
-
 	resp, status, _, err := c.BaseClient.Get(ctx, GetHttpRequestInput{
 		DisablePaging:    query.Top > 0,
 		OData:            query,

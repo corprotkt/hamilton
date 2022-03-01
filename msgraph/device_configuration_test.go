@@ -36,7 +36,14 @@ func testConfigurationAssignment(t *testing.T, c *test.Test, id *string) {
 		{Target: *msgraph.NewAllDevicesAssignmentTarget()},
 	}
 
-	c.DeviceConfigurationClient.AddAssignments(c.Context, *id, assignments)
+	status, err := c.DeviceConfigurationClient.AddAssignments(c.Context, *id, assignments)
+
+	if err != nil {
+		t.Fatalf("DeviceConfigurationClient.AddAssignments(): %v", err)
+	}
+	if status < 200 || status >= 300 {
+		t.Fatalf("DeviceConfigurationClient.AddAssignments(): invalid status: %d", status)
+	}
 }
 
 func testDeviceConfigurationList(t *testing.T, c *test.Test) {
@@ -46,10 +53,6 @@ func testDeviceConfigurationList(t *testing.T, c *test.Test) {
 		t.Fatalf("DeviceConfigurationClient.List(): %v", err)
 	} else if policies == nil {
 		t.Fatalf("DeviceConfigurationClient: policies was nil")
-	}
-
-	for _, p := range *policies {
-		t.Logf("Configuration: %v\n", p)
 	}
 }
 
@@ -83,9 +86,6 @@ func testDeviceConfigurationGet(t *testing.T, c *test.Test, id string) {
 		t.Fatalf("DeviceConfigurationClient.Get: invalid status: %d", status)
 	} else if config == nil {
 		t.Fatal("DeviceConfigurationClient.Get(): policy was nil")
-	} else {
-		base := config.GetConfigurationBase()
-		t.Logf("Got config id:%s name %s\n", *base.ID, *base.DisplayName)
 	}
 }
 
