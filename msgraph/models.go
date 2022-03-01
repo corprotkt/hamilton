@@ -1669,6 +1669,7 @@ type DeviceManagementConfigurationPolicy struct {
 	SettingCount         *int32                                                `json:"settingCount,omitempty"`
 	Technologies         *DeviceManagementConfigurationTechnologies            `json:"technologies,omitempty"`
 	TemplateReference    *DeviceManagementConfigurationPolicyTemplateReference `json:"templateReference,omitempty"`
+	Settings             *[]DeviceManagementConfigurationSetting               `json:"settings,omitempty"`
 }
 
 type DeviceManagementConfigurationPolicyTemplateReference struct {
@@ -2410,6 +2411,11 @@ func (a Windows10CustomConfiguration) GetConfigurationBase() *DeviceConfiguratio
 	return &a.DeviceConfigurationBase
 }
 
+type DeviceManagementConfigurationItem struct {
+	ID      *string                                      `json:"id,omitempty"`
+	Setting DeviceManagementConfigurationSettingInstance `json:"setting,omitempty"`
+}
+
 type DeviceManagementConfigurationChoiceSettingValue struct {
 	DeviceManagementConfigurationSettingValue
 	Children *[]DeviceManagementConfigurationSettingInstance `json:"children,omitempty"`
@@ -2417,6 +2423,7 @@ type DeviceManagementConfigurationChoiceSettingValue struct {
 }
 
 type DeviceManagementConfigurationSettingValue struct {
+	ODataType                     *odata.Type                                                 `json:"@odata.type,omitempty"`
 	SettingValueTemplateReference *DeviceManagementConfigurationSettingValueTemplateReference `json:"settingValueTemplateReference,omitempty"`
 }
 
@@ -2426,21 +2433,170 @@ type DeviceManagementConfigurationSettingValueTemplateReference struct {
 }
 
 type DeviceManagementConfigurationChoiceSettingInstance struct {
-	DeviceManagementConfigurationSettingInstance
+	DeviceManagementConfigurationSettingInstanceBase
 	ChoiceSettingValue *DeviceManagementConfigurationChoiceSettingValue `json:"choiceSettingValue,omitempty"`
 }
 
-type DeviceManagementConfigurationSettingInstance struct {
-	SettingDefinitionId              *string                                                        `json:"settingDefinitionId,omitempty"`
-	SettingInstanceTemplateReference *DeviceManagementConfigurationSettingInstanceTemplateReference `json:"settingInstanceTemplateReference,omitempty"`
+type DeviceManagementConfigurationSimpleSettingInstance struct {
+	DeviceManagementConfigurationSettingInstanceBase
+	SimpleSettingValue *DeviceManagementConfigurationSimpleSettingValue `json:"simpleSettingValue,omitempty"`
+}
+
+type DeviceManagementConfigurationSimpleSettingValue struct {
+	DeviceManagementConfigurationSettingValue
+	Value interface{} `json:"value,omitempty"`
 }
 
 type DeviceManagementConfigurationSettingInstanceTemplateReference struct {
 	SettingInstanceTemplateId *string `json:"settingInstanceTemplateId,omitempty"`
 }
 
-type DeviceManagementConfigurationSetting struct {
-	Entity
+type DeviceManagementConfigurationSettingInstance interface {
+	GetDeviceManagementConfigurationSettingInstanceBase() *DeviceManagementConfigurationSettingInstanceBase
+}
 
-	SettingInstance *DeviceManagementConfigurationSettingInstance `json:"settingInstance,omitempty"`
+type DeviceManagementConfigurationSettingInstanceBase struct {
+	ODataType                        *odata.Type                                                    `json:"@odata.type,omitempty"`
+	SettingDefinitionId              *string                                                        `json:"settingDefinitionId,omitempty"`
+	SettingInstanceTemplateReference *DeviceManagementConfigurationSettingInstanceTemplateReference `json:"settingInstanceTemplateReference,omitempty"`
+}
+
+func (c DeviceManagementConfigurationChoiceSettingInstance) GetDeviceManagementConfigurationSettingInstanceBase() *DeviceManagementConfigurationSettingInstanceBase {
+	return &c.DeviceManagementConfigurationSettingInstanceBase
+}
+
+func (c DeviceManagementConfigurationSimpleSettingInstance) GetDeviceManagementConfigurationSettingInstanceBase() *DeviceManagementConfigurationSettingInstanceBase {
+	return &c.DeviceManagementConfigurationSettingInstanceBase
+}
+
+type DeviceManagementConfigurationSetting struct {
+	SettingInstance DeviceManagementConfigurationSettingInstance `json:"settingInstance,omitempty"`
+}
+
+type DeviceManagementConfigurationReferredSettingInformation struct {
+	SettingDefinitionId *string `json:"settingDefinitionId,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingOccurrence struct {
+	MaxDeviceOccurrence *int32 `json:"maxDeviceOccurrence,omitempty"`
+	MinDeviceOccurrence *int32 `json:"minDeviceOccurrence,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingApplicability struct {
+	Description  *string                                    `json:"description,omitempty"`
+	DeviceMode   *DeviceManagementConfigurationDeviceMode   `json:"deviceMode,omitempty"`
+	Platform     *DeviceManagementConfigurationPlatforms    `json:"platform,omitempty"`
+	Technologies *DeviceManagementConfigurationTechnologies `json:"technologies,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingDefinition interface {
+	GetDeviceManagementConfigurationSettingDefinitionBase() *DeviceManagementConfigurationSettingDefinitionBase
+}
+
+type DeviceManagementConfigurationSettingDefinitionBase struct {
+	Entity
+	AccessTypes                    *DeviceManagementConfigurationSettingAccessTypes           `json:"accessTypes,omitempty"`
+	Applicability                  *DeviceManagementConfigurationSettingApplicability         `json:"applicability,omitempty"`
+	BaseUri                        *string                                                    `json:"baseUri,omitempty"`
+	CategoryId                     *string                                                    `json:"categoryId,omitempty"`
+	Description                    *string                                                    `json:"description,omitempty"`
+	DisplayName                    *string                                                    `json:"displayName,omitempty"`
+	HelpText                       *string                                                    `json:"helpText,omitempty"`
+	InfoUrls                       *[]string                                                  `json:"infoUrls,omitempty"`
+	Keywords                       *[]string                                                  `json:"keywords,omitempty"`
+	Name                           *string                                                    `json:"name,omitempty"`
+	Occurrence                     *DeviceManagementConfigurationSettingOccurrence            `json:"occurrence,omitempty"`
+	OffsetUri                      *string                                                    `json:"offsetUri,omitempty"`
+	ReferredSettingInformationList *[]DeviceManagementConfigurationReferredSettingInformation `json:"referredSettingInformationList,omitempty"`
+	RootDefinitionId               *string                                                    `json:"rootDefinitionId,omitempty"`
+	SettingUsage                   *DeviceManagementConfigurationSettingUsage                 `json:"settingUsage,omitempty"`
+	UxBehavior                     *DeviceManagementConfigurationControlType                  `json:"uxBehavior,omitempty"`
+	Version                        *string                                                    `json:"version,omitempty"`
+	Visibility                     *DeviceManagementConfigurationSettingVisibility            `json:"visibility,omitempty"`
+}
+
+type DeviceManagementConfigurationOptionDefinition struct {
+	DependedOnBy *[]DeviceManagementConfigurationSettingDependedOnBy `json:"dependedOnBy,omitempty"`
+	DependentOn  *[]DeviceManagementConfigurationDependentOn         `json:"dependentOn,omitempty"`
+	Description  *string                                             `json:"description,omitempty"`
+	DisplayName  *string                                             `json:"displayName,omitempty"`
+	HelpText     *string                                             `json:"helpText,omitempty"`
+	ItemId       *string                                             `json:"itemId,omitempty"`
+	Name         *string                                             `json:"name,omitempty"`
+	OptionValue  *DeviceManagementConfigurationSettingValue          `json:"optionValue,omitempty"`
+}
+
+type DeviceManagementConfigurationDependentOn struct {
+	DependentOn     *string `json:"dependentOn,omitempty"`
+	ParentSettingId *string `json:"parentSettingId,omitempty"`
+}
+
+type DeviceManagementConfigurationChoiceSettingDefinition struct {
+	DeviceManagementConfigurationSettingDefinitionBase
+	DefaultOptionId *string                                          `json:"defaultOptionId,omitempty"`
+	Options         *[]DeviceManagementConfigurationOptionDefinition `json:"options,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingValueDefinition struct {
+	ODataType *odata.Type `json:"@odata.type,omitempty"`
+}
+
+type DeviceManagementConfigurationSimpleSettingDefinition struct {
+	DeviceManagementConfigurationSettingDefinitionBase
+	DefaultValue    *DeviceManagementConfigurationSettingValue           `json:"defaultValue,omitempty"`
+	DependedOnBy    *[]DeviceManagementConfigurationSettingDependedOnBy  `json:"dependedOnBy,omitempty"`
+	DependentOn     *[]DeviceManagementConfigurationDependentOn          `json:"dependentOn,omitempty"`
+	ValueDefinition *DeviceManagementConfigurationSettingValueDefinition `json:"valueDefinition,omitempty"`
+}
+type DeviceManagementConfigurationSimpleSettingCollectionDefinition struct {
+	DeviceManagementConfigurationSimpleSettingDefinition
+	MaximumCount *int32 `json:"maximumCount,omitempty"`
+	MinimumCount *int32 `json:"minimumCount,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingGroupDefinition struct {
+	DeviceManagementConfigurationSettingDefinitionBase
+	ChildIds     *[]string                                           `json:"childIds,omitempty"`
+	DependedOnBy *[]DeviceManagementConfigurationSettingDependedOnBy `json:"dependedOnBy,omitempty"`
+	DependentOn  *[]DeviceManagementConfigurationDependentOn         `json:"dependentOn,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingGroupCollectionDefinition struct {
+	DeviceManagementConfigurationSettingGroupDefinition
+	MaximumCount *int32 `json:"maximumCount,omitempty"`
+	MinimumCount *int32 `json:"minimumCount,omitempty"`
+}
+
+type DeviceManagementConfigurationChoiceSettingCollectionDefinition struct {
+	DeviceManagementConfigurationChoiceSettingDefinition
+	MaximumCount *int32 `json:"maximumCount,omitempty"`
+	MinimumCount *int32 `json:"minimumCount,omitempty"`
+}
+
+type DeviceManagementConfigurationRedirectSettingDefinition struct {
+	DeviceManagementConfigurationSettingDefinitionBase
+	DeepLink        *string `json:"deepLink,omitempty"`
+	RedirectMessage *string `json:"redirectMessage,omitempty"`
+	RedirectReason  *string `json:"redirectReason,omitempty"`
+}
+
+type DeviceManagementConfigurationSettingDependedOnBy struct {
+	DependedOnBy *string `json:"dependedOnBy,omitempty"`
+	Required     *bool   `json:"required,omitempty"`
+}
+
+func (s DeviceManagementConfigurationSimpleSettingDefinition) GetDeviceManagementConfigurationSettingDefinitionBase() *DeviceManagementConfigurationSettingDefinitionBase {
+	return &s.DeviceManagementConfigurationSettingDefinitionBase
+}
+
+func (s DeviceManagementConfigurationChoiceSettingDefinition) GetDeviceManagementConfigurationSettingDefinitionBase() *DeviceManagementConfigurationSettingDefinitionBase {
+	return &s.DeviceManagementConfigurationSettingDefinitionBase
+}
+
+func (s DeviceManagementConfigurationSettingGroupCollectionDefinition) GetDeviceManagementConfigurationSettingDefinitionBase() *DeviceManagementConfigurationSettingDefinitionBase {
+	return &s.DeviceManagementConfigurationSettingDefinitionBase
+}
+
+func (s DeviceManagementConfigurationRedirectSettingDefinition) GetDeviceManagementConfigurationSettingDefinitionBase() *DeviceManagementConfigurationSettingDefinitionBase {
+	return &s.DeviceManagementConfigurationSettingDefinitionBase
 }
