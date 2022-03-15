@@ -2452,6 +2452,7 @@ type DeviceManagementConfigurationSimpleSettingInstance struct {
 
 type DeviceManagementConfigurationSimpleSettingValue struct {
 	DeviceManagementConfigurationSettingValue
+	// TODO: implement other types more cleanly
 	Value interface{} `json:"value,omitempty"`
 }
 
