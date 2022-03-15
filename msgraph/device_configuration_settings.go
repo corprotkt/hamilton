@@ -122,7 +122,7 @@ func (c *DeviceConfigurationSettingsClient) GetConfigurationPolicyItems(ctx cont
 		result := []DeviceManagementConfigurationSettingInstance{}
 
 		for _, item := range *data.RawValues {
-			a, err := newFunction(item.RawSetting)
+			a, err := unmarshalSettingInstance(item.RawSetting)
 
 			if err != nil {
 				return nil, 0, err
@@ -134,7 +134,7 @@ func (c *DeviceConfigurationSettingsClient) GetConfigurationPolicyItems(ctx cont
 	}
 }
 
-func newFunction(item json.RawMessage) (DeviceManagementConfigurationSettingInstance, error) {
+func unmarshalSettingInstance(item json.RawMessage) (DeviceManagementConfigurationSettingInstance, error) {
 	var o struct {
 		ODataType          *string `json:"@odata.type,omitempty"`
 		ChoiceSettingValue *struct {
@@ -163,7 +163,7 @@ func newFunction(item json.RawMessage) (DeviceManagementConfigurationSettingInst
 			var children []DeviceManagementConfigurationSettingInstance
 
 			for _, c := range *o.ChoiceSettingValue.Children {
-				child, err := newFunction(c)
+				child, err := unmarshalSettingInstance(c)
 				if err != nil {
 					return nil, err
 				} else {
