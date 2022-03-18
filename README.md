@@ -17,6 +17,7 @@ See [pkg.go.dev](https://pkg.go.dev/github.com/manicminer/hamilton).
 - Ability to inject middleware functions for logging etc
 - OData parsing in API responses and support for OData queries such as filters, sorting, searching, expand and select
 - Built-in authentication support using methods including client credentials (both client secret and client certificate), obtaining access tokens via Azure CLI, managed identity via the Azure Metadata Service, and federated credentials with a built-in authorizer for GitHub OIDC.
+- Compatibility with [go-autorest](https://github.com/Azure/go-autorest), both for consuming autorest authorizers, and for providing autorest-compatible authorizers (see the [hamilton-autorest](https://github.com/manicminer/hamilton-autorest) add-on module)
 
 ## Getting Started
 
@@ -27,8 +28,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"net/http"
-	"net/http/httputil"
 	"os"
 
 	"github.com/manicminer/hamilton/auth"
@@ -61,30 +60,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	requestLogger := func(req *http.Request) (*http.Request, error) {
-		if req != nil {
-			dmp, err := httputil.DumpRequestOut(req, true)
-			if err == nil {
-				log.Printf("REQUEST: %s", dmp)
-			}
-		}
-		return req, nil
-	}
-
-	responseLogger := func(req *http.Request, resp *http.Response) (*http.Response, error) {
-		if resp != nil {
-			dmp, err := httputil.DumpResponse(resp, true)
-			if err == nil {
-				log.Printf("RESPONSE: %s", dmp)
-			}
-		}
-		return resp, nil
-	}
-
 	client := msgraph.NewUsersClient(tenantId)
 	client.BaseClient.Authorizer = authorizer
-	client.BaseClient.RequestMiddlewares = &[]msgraph.RequestMiddleware{requestLogger}
-	client.BaseClient.ResponseMiddlewares = &[]msgraph.ResponseMiddleware{responseLogger}
 
 	users, _, err := client.List(ctx, odata.Query{})
 	if err != nil {
