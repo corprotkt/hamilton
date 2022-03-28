@@ -1,7 +1,6 @@
 package msgraph_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/manicminer/hamilton/internal/test"
@@ -25,6 +24,10 @@ func testManagedDeviceList(t *testing.T, c *test.Test) {
 	}
 	if managed_devices == nil {
 		t.Fatal("ManagedDeviceClient.List(): managed_devices was nil")
+	} else {
+		for _, device := range *managed_devices {
+			t.Logf("Device: %+v\n", device)
+		}
 	}
 }
 
@@ -37,7 +40,7 @@ func testManagedDevicesWindowsProtectionState(t *testing.T, c *test.Test) {
 		t.Fatal("ManagedDeviceClient.List(): managed_devices was nil")
 	}
 
-	fmt.Printf("n=%d\n", len(*managed_devices))
+	t.Logf("n=%d\n", len(*managed_devices))
 
 	for _, device := range *managed_devices {
 		state, _, err := c.ManagedDeviceClient.GetWindowsProtectionState(c.Context, *device.ID, odata.Query{})
@@ -49,7 +52,7 @@ func testManagedDevicesWindowsProtectionState(t *testing.T, c *test.Test) {
 			t.Fatalf("ManagedDeviceClient.GetWindowsProtectionState(%s): state was nil", *device.ID)
 		}
 
-		fmt.Printf("%s\n", *device.ID)
+		t.Logf("%s %v\n", *device.ID, *device.ComplianceState)
 
 	}
 }
