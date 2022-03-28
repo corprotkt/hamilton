@@ -38,7 +38,7 @@ func (c *Client) ListAssignments(ctx context.Context, prefix string, id string, 
 		},
 	})
 	if err != nil {
-		return nil, status, fmt.Errorf("DeviceCompliancePolicyClient.BaseClient.Get(): %v", err)
+		return nil, status, fmt.Errorf("BaseClient.Get(): %v", err)
 	}
 
 	defer resp.Body.Close()

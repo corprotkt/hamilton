@@ -85,9 +85,8 @@ func (c *DeviceConfigurationSettingsClient) Get(ctx context.Context, id string, 
 
 func (c *DeviceConfigurationSettingsClient) GetConfigurationPolicyItems(ctx context.Context, id string, query odata.Query) (*[]DeviceManagementConfigurationSettingInstance, int, error) {
 	resp, status, _, err := c.BaseClient.Get(ctx, GetHttpRequestInput{
-		ConsistencyFailureFunc: RetryOn404ConsistencyFailureFunc,
-		OData:                  query,
-		ValidStatusCodes:       []int{http.StatusOK},
+		OData:            query,
+		ValidStatusCodes: []int{http.StatusOK},
 		Uri: Uri{
 			Entity:      fmt.Sprintf("/deviceManagement/configurationPolicies/%s/settings", id),
 			HasTenantId: true,
@@ -121,7 +120,12 @@ func (c *DeviceConfigurationSettingsClient) GetConfigurationPolicyItems(ctx cont
 
 		result := []DeviceManagementConfigurationSettingInstance{}
 
-		for _, item := range *data.RawValues {
+		for i, item := range *data.RawValues {
+
+			b, _ := json.MarshalIndent(item, fmt.Sprintf("%3d: ", i), "    ")
+
+			fmt.Printf("%s\n", b)
+
 			a, err := unmarshalSettingInstance(item.RawSetting)
 
 			if err != nil {
